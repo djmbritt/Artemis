@@ -1,11 +1,12 @@
 package Artemis;
 
+import Artemis.View.MainBorderPane;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -17,16 +18,19 @@ public class Main extends Application {
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
+
             public void handle(ActionEvent event) {
                 System.out.println("Hello World!");
             }
         });
 
+        BorderPane mainPane = new MainBorderPane();
+
         StackPane root = new StackPane();
         root.getChildren().add(btn);
+        mainPane.setCenter(root);
 
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(mainPane, 300, 250);
 
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
