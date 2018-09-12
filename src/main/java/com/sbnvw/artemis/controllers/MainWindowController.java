@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
@@ -14,15 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
- * @author Zilverdrake
+ * @author Marcel van Wilgenburg
  */
 public class MainWindowController implements Initializable {
-    
+
     @FXML
     private BorderPane mainWindow;
     @FXML
@@ -30,7 +24,7 @@ public class MainWindowController implements Initializable {
     @FXML
     private AnchorPane centerAnchor;
     @FXML
-    private VBox leftAnchor;
+    private AnchorPane leftAnchor;
     @FXML
     private AnchorPane rightAnchor;
 
@@ -42,20 +36,58 @@ public class MainWindowController implements Initializable {
         MainApp.loadFXMLFile(centerAnchor, "/fxml/LoginPage.fxml");
         centerAnchor.autosize();
         MainApp.setMainWindowController(this);
-        
+
     }
-    
+
     @FXML
     void closeApp(ActionEvent event) {
-        
+
         System.exit(0);
-        
+
     }
-    
+
     public void loadLeftPane(String path) {
-        
+
         MainApp.loadFXMLFile(leftAnchor, path);
-        
+
+    }
+
+    public void loadRightPane(String path) {
+
+        MainApp.loadFXMLFile(rightAnchor, path);
+
+    }
+
+    public void loadCenterPane(String path) {
+
+        MainApp.loadFXMLFile(centerAnchor, path);
+
+    }
+
+    public AnchorPane getCenterAnchor() {
+        return centerAnchor;
+    }
+
+    public void setCenterAnchor(AnchorPane centerAnchor) {
+        this.centerAnchor = centerAnchor;
+    }
+
+    public AnchorPane getLeftAnchor() {
+        return leftAnchor;
+    }
+
+    public void setLeftAnchor(AnchorPane leftAnchor) {
+        this.leftAnchor = leftAnchor;
+    }
+
+    public AnchorPane getRightAnchor() {
+        return rightAnchor;
+    }
+
+    public void setRightAnchor(AnchorPane rightAnchor) {
+        this.rightAnchor = rightAnchor;
     }
     
-}
+    
+    
+    }

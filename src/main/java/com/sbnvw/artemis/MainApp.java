@@ -2,34 +2,34 @@ package com.sbnvw.artemis;
 
 import com.sbnvw.artemis.controllers.MainWindowController;
 import java.io.IOException;
-import java.util.ResourceBundle;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
-
+    
     private static MainWindowController mainWindowController;
-
+    
     public static MainWindowController getMainWindowController() {
         return mainWindowController;
     }
-
+    
     public static void setMainWindowController(MainWindowController aMainWindowController) {
         mainWindowController = aMainWindowController;
     }
-
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
-
+        
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-
+        
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
         stage.show();
@@ -46,24 +46,29 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
     public static Object loadFXMLFile(Pane parent, String fxmlFileName) {
-
+        
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
             Pane pane = fxmlLoader.load();
-
-            parent.getChildren().clear();
+            
+            parent.getChildren().addAll();
             parent.getChildren().add(pane);
             pane.prefWidthProperty().bind(parent.widthProperty());
             pane.prefHeightProperty().bind(parent.heightProperty());
+            
+            if (pane instanceof AnchorPane) {
+                System.out.println("I am an AnchorPane");
+            }
+            
             return fxmlLoader.getController();
-
+            
         } catch (IOException ex) {
             System.out.println(ex.getClass().getName() + ": " + ex.getMessage());
             return null;
         }
-
+        
     }
-
+    
 }
