@@ -34,17 +34,28 @@ public class LoginPageController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void btnLogin(ActionEvent event) {
         login();
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void passLogin(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
@@ -53,6 +64,10 @@ public class LoginPageController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param event
+     */
     @FXML
     public void userLogin(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
@@ -86,5 +101,5 @@ public class LoginPageController implements Initializable {
         }
 
     }
-
+    
 }

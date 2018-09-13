@@ -30,6 +30,8 @@ public class MainWindowController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -46,44 +48,80 @@ public class MainWindowController implements Initializable {
 
     }
 
+    /**
+     *
+     * @param path
+     */
     public void loadLeftPane(String path) {
 
         MainApp.loadFXMLFile(leftAnchor, path);
 
     }
 
+    /**
+     *
+     * @param path
+     */
     public void loadRightPane(String path) {
 
         MainApp.loadFXMLFile(rightAnchor, path);
 
     }
 
+    /**
+     *
+     * @param path
+     */
     public void loadCenterPane(String path) {
 
         MainApp.loadFXMLFile(centerAnchor, path);
 
     }
 
+    /**
+     *
+     * @return
+     */
     public AnchorPane getCenterAnchor() {
         return centerAnchor;
     }
 
+    /**
+     *
+     * @param centerAnchor
+     */
     public void setCenterAnchor(AnchorPane centerAnchor) {
         this.centerAnchor = centerAnchor;
     }
 
+    /**
+     *
+     * @return
+     */
     public AnchorPane getLeftAnchor() {
         return leftAnchor;
     }
 
+    /**
+     *
+     * @param leftAnchor
+     */
     public void setLeftAnchor(AnchorPane leftAnchor) {
         this.leftAnchor = leftAnchor;
     }
 
+    /**
+     *
+     * @return
+     */
     public AnchorPane getRightAnchor() {
         return rightAnchor;
     }
 
+    /**
+     *
+     * @param rightAnchor
+     */
     public void setRightAnchor(AnchorPane rightAnchor) {
         this.rightAnchor = rightAnchor;
     }

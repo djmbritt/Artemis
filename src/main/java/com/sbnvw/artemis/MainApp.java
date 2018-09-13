@@ -11,14 +11,26 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author Zilverdrake
+ */
 public class MainApp extends Application {
     
     private static MainWindowController mainWindowController;
     
+    /**
+     *
+     * @return
+     */
     public static MainWindowController getMainWindowController() {
         return mainWindowController;
     }
     
+    /**
+     *
+     * @param aMainWindowController
+     */
     public static void setMainWindowController(MainWindowController aMainWindowController) {
         mainWindowController = aMainWindowController;
     }
@@ -47,6 +59,12 @@ public class MainApp extends Application {
         launch(args);
     }
     
+    /**
+     *
+     * @param parent
+     * @param fxmlFileName
+     * @return
+     */
     public static Object loadFXMLFile(Pane parent, String fxmlFileName) {
         
         try {
