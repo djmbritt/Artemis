@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: D5D1C6;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
+<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="903.0" prefWidth="1038.0" style="-fx-background-image: url('img/Forest.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,7 +33,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="1600.0" style="-fx-background-color: D5D1C6;" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="1600.0" VBox.vgrow="ALWAYS">
                <children>
                   <ImageView fitHeight="291.0" fitWidth="813.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -46,19 +46,24 @@
       </VBox>
    </top>
    <center>
-      <AnchorPane fx:id="centerAnchor" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="780.0" prefWidth="768.0">
          <children>
-            <ImageView fitHeight="1018.0" fitWidth="1879.0" layoutX="700.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-186.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-279.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../img/GreenField.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+            <AnchorPane fx:id="centerAnchor" layoutY="-9.0" prefHeight="780.0" prefWidth="696.0" />
+         </children>
+      </AnchorPane>
    </center>
    <right>
-      <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="780.0" prefWidth="178.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="rightAnchor" layoutX="676.0" prefHeight="780.0" prefWidth="172.0" />
+         </children>
+      </AnchorPane>
    </right>
    <left>
-      <AnchorPane fx:id="leftAnchor" prefWidth="0.0" BorderPane.alignment="CENTER" />
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="leftAnchor" prefHeight="780.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
    </left>
 </BorderPane>

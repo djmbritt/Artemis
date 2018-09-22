@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: D5D1C6;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
+   <top>
+      <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar prefHeight="16.0" prefWidth="1600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeApp" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="1600.0" style="-fx-background-color: D5D1C6;" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="291.0" fitWidth="813.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Artemis_trans.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane fx:id="centerAnchor" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="1018.0" fitWidth="1879.0" layoutX="700.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-186.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-279.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@../img/GreenField.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </center>
+   <right>
+      <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </right>
+   <left>
+      <AnchorPane fx:id="leftAnchor" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
