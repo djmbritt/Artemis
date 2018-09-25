@@ -32,8 +32,6 @@ public abstract class Account extends AccountLogin{
     public Account() {
         super(null);
     }
-    
-    
 
     public Account(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
         super(password);

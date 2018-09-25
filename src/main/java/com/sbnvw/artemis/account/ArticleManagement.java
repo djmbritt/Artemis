@@ -11,4 +11,14 @@ package com.sbnvw.artemis.account;
  */
 public interface ArticleManagement {
     
+    public abstract void modifyArticle();
+    
+    public abstract void deleteArticle();
+    
+    public abstract void createAnimal();
+    
+    public abstract void suggestArticle();
+    
+    public abstract void viewArticle();    
+    
 }

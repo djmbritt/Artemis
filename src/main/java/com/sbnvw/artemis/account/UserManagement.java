@@ -9,6 +9,14 @@ package com.sbnvw.artemis.account;
  *
  * @author djmbritt
  */
-public abstract class abstractAccount {
+public interface UserManagement {
+    
+    public abstract void modifyUser();
+    
+    public abstract void deleteUser();
+    
+    public abstract void createUser();
+    
+    public abstract void viewUser();
     
 }
