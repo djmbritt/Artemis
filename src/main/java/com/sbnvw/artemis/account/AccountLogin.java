@@ -21,7 +21,6 @@ public abstract class AccountLogin {
         userID++;
     }
     
-    
     public int getUserID(){
         return this.userID;
     }
