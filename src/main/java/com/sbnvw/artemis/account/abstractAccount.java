@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sbnvw.artemis.acount;
+package com.sbnvw.artemis.account;
 
 /**
  *
- * @author gl503vd-fy127t
+ * @author djmbritt
  */
-public class Acount {
+public abstract class abstractAccount {
     
 }
