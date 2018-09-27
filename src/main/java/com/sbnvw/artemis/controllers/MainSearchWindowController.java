@@ -48,7 +48,10 @@ public class MainSearchWindowController implements Initializable {
         setAnimalsList(animals);
 
     }
-
+/**
+ * 
+ * @param list 
+ */
     public void setAnimalsList(ArrayList list) {
         animalList.getItems().clear();
         animalList.getItems().setAll(list);

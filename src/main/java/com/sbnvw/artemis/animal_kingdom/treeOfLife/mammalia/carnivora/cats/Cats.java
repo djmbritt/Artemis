@@ -1,5 +1,6 @@
 package com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.cats;
 
+import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.Carnivora;
 
 /**
@@ -24,5 +25,6 @@ public class Cats extends Carnivora {
     public static int getCats() {
         return cats;
     }
+
 
 }
