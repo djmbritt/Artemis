@@ -51,8 +51,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
 
-        Screen screen = Screen.getPrimary();
-        
+        Screen screen = Screen.getPrimary();        
         Rectangle2D bounds = screen.getVisualBounds();
 
         Scene scene = new Scene(root);
@@ -66,6 +65,11 @@ public class MainApp extends Application {
         stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.show();
+        
+        Cat cat = new Cat("Cat");
+        
+        System.out.println(cat.getDiet().diet());
+        
 
     }
 

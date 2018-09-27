@@ -46,24 +46,12 @@
       </VBox>
    </top>
    <center>
-      <AnchorPane prefHeight="780.0" prefWidth="768.0">
-         <children>
-            <AnchorPane fx:id="centerAnchor" layoutY="-9.0" prefHeight="780.0" prefWidth="696.0" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="centerAnchor" prefHeight="780.0" prefWidth="671.0" />
    </center>
    <right>
-      <AnchorPane prefHeight="780.0" prefWidth="178.0" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane fx:id="rightAnchor" layoutX="676.0" prefHeight="780.0" prefWidth="172.0" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="247.0" BorderPane.alignment="CENTER" />
    </right>
    <left>
-      <AnchorPane BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane fx:id="leftAnchor" prefHeight="780.0" prefWidth="150.0" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="leftAnchor" prefHeight="780.0" prefWidth="180.0" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>
