@@ -8,18 +8,18 @@ public abstract class Carnivora extends Mammalia {
 
     private static int carnivoras;
     private final int carnivoraID;
-    private final Diet diet = new Eats_Meat();
 
     public Carnivora(String name) {
 
         super(name);
         carnivoraID = carnivoras;
         carnivoras++;
+
     }
 
-    public Diet getDiet() {
-        return diet;
+    @Override
+    public void setDiet(Diet diet) {
+        super.setDiet(new Eats_Meat());
     }
-    
-    
+
 }

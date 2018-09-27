@@ -1,5 +1,6 @@
 package com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia;
 
+import com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Meat;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 
 public abstract class Mammalia extends Animal {
