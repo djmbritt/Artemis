@@ -9,8 +9,8 @@ public class AccountFactory {
     public AccountFactory() {
     }
     
-    public static Account createAccount(String accountType){
-        Account accnt = null;
+    public static GetAccount createAccount(String accountType){
+        GetAccount accnt = null;
         
         if(accountType.equalsIgnoreCase("sysadmin")){
             
@@ -41,12 +41,11 @@ public class AccountFactory {
             
         } else {
             
-            accnt = new Guest();
-            System.out.println("Creating Guest");
+            return null;
             
         }
 
-        return accnt;
+        return null;
     }
 
 }

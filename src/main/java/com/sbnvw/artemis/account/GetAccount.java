@@ -9,7 +9,7 @@ package com.sbnvw.artemis.account;
  *
  * @author djmbritt
  */
-public interface Account {
+public interface GetAccount {
 
     public String getAccountType();
 }

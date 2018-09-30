@@ -9,7 +9,7 @@ package com.sbnvw.artemis.account;
  *
  * @author djmbritt
  */
-public class SystemAdministrator extends UserInformation implements UserManagement, Account {
+public class SystemAdministrator extends UserInformation implements UserManagement, GetAccount {
 
     /**
      * User Management
@@ -36,7 +36,7 @@ public class SystemAdministrator extends UserInformation implements UserManageme
     
     /**
      * 
-     * @return Current Account Type
+     * @return Current GetAccount Type
      */
 
     @Override

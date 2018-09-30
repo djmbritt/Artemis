@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class Administrator extends UserInformation implements UserManagement, ArticleManagement, Account {
+public class Administrator extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
 
     public Administrator() {
     }
@@ -70,7 +70,7 @@ public class Administrator extends UserInformation implements UserManagement, Ar
 
     /**
      * 
-     * @return Current Account Type
+     * @return Current GetAccount Type
      */
     @Override
     public String getAccountType() {

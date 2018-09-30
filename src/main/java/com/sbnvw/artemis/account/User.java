@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class User extends UserInformation implements UserManagement, ArticleManagement, Account {
+public class User extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
 
     public User() {
     }
@@ -74,7 +74,7 @@ public class User extends UserInformation implements UserManagement, ArticleMana
     
     /**
      * 
-     * @return Current Account Type
+     * @return Current GetAccount Type
      */
 
     @Override
