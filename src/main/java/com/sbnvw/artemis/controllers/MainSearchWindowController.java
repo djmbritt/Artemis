@@ -2,8 +2,8 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.canidae.dogs.Dog;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.cats.smallCats.Cat;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
