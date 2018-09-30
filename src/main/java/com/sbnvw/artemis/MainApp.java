@@ -103,6 +103,10 @@ public class MainApp extends Application {
         stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.show();
+        
+        
+        Cat cat = new Cat("CAT");
+        
     }
 
     /**
