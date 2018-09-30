@@ -5,48 +5,32 @@
  */
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
-import java.util.Date;
-
 /**
  *
  * @author djmbritt
  */
-public class Guest extends UserInformation implements ArticleManagement, Account {
+public class SystemAdministrator extends UserInformation implements UserManagement, Account {
 
-    public Guest() {
-    }
-
-    public Guest(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
-    }
-    
     /**
-     * Article Management
+     * User Management
      */
-
     @Override
-    public void createArticle() {
+    public void createUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void readArticle() {
+    public void readUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void updateArticle() {
+    public void updateUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void deleteArticle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void suggestArticle() {
+    public void deleteUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

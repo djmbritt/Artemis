@@ -10,18 +10,31 @@ import java.util.Date;
 
 /**
  * iterator pattern
- * 
+ *
  *
  * @author djmbritt
  */
-public class Administrator extends Account implements UserManagement, ArticleManagement{
+public class Administrator extends UserInformation implements UserManagement, ArticleManagement, Account {
+
+    public Administrator() {
+    }
 
     public Administrator(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
         super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
-    }  
-    
+    }
+
     @Override
-    public void modifyUser() {
+    public void createUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void readUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -31,17 +44,17 @@ public class Administrator extends Account implements UserManagement, ArticleMan
     }
 
     @Override
-    public void createUser() {
+    public void createArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void viewUser() {
+    public void readArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modifyArticle() {
+    public void updateArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -51,18 +64,17 @@ public class Administrator extends Account implements UserManagement, ArticleMan
     }
 
     @Override
-    public void createAnimal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void suggestArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * 
+     * @return Current Account Type
+     */
     @Override
-    public void viewArticle() {
+    public String getAccountType() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

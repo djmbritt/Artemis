@@ -12,14 +12,30 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class User extends Account implements UserManagement, ArticleManagement{
+public class User extends UserInformation implements UserManagement, ArticleManagement, Account {
+
+    public User() {
+    }
 
     public User(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
         super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
     }
 
+    /**
+     * User Management
+     */
     @Override
-    public void modifyUser() {
+    public void createUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void readUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void updateUser() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -28,18 +44,21 @@ public class User extends Account implements UserManagement, ArticleManagement{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * Article Management
+     */
     @Override
-    public void createUser() {
+    public void createArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void viewUser() {
+    public void readArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void modifyArticle() {
+    public void updateArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -49,18 +68,18 @@ public class User extends Account implements UserManagement, ArticleManagement{
     }
 
     @Override
-    public void createAnimal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void suggestArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    /**
+     * 
+     * @return Current Account Type
+     */
 
     @Override
-    public void viewArticle() {
+    public String getAccountType() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
