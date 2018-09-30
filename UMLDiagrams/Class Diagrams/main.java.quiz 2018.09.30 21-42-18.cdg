@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.quiz">
+  <ClassDiagramComponents>
+    <Class name="Question" package="quiz" visibility="public" xPosition="647.0" yPosition="503.0">
+      <Fields>
+        <Field name="typeName" type="String" visibility="private"/>
+        <Field name="question" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="question" returnType="void" visibility="public">
+          <Argument type="String" name="question"/>
+        </Method>
+        <Method name="getQuestionType" returnType="String" visibility="public"/>
+        <Method name="getTypeName" returnType="String" visibility="public"/>
+        <Method name="setTypeName" returnType="void" visibility="public">
+          <Argument type="String" name="typeName"/>
+        </Method>
+        <Method name="getQuestion" returnType="String" visibility="public"/>
+        <Method name="setQuestion" returnType="void" visibility="public">
+          <Argument type="String" name="question"/>
+        </Method>
+        <Method name="questionTypeName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="QuestionGroup" package="quiz" visibility="public" xPosition="202.0" yPosition="70.0">
+      <Fields>
+        <Field name="typeName" type="String" visibility="private"/>
+        <Field name="quiz" type="List&lt;Quiz&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="typeName"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addQuestionToGroup" returnType="void" visibility="public">
+          <Argument type="Quiz" name="question"/>
+        </Method>
+        <Method name="removeQuestion" returnType="void" visibility="public">
+          <Argument type="Quiz" name="question"/>
+        </Method>
+        <Method name="printQuestions" returnType="void" visibility="public"/>
+        <Method name="questionTypeName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Quiz" package="quiz" visibility="public" xPosition="213.0" yPosition="577.0">
+      <Methods>
+        <Method name="questionTypeName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="quiz.QuestionGroup" target="quiz.Quiz"/>
+    <HasRelation name="quiz" source="quiz.QuestionGroup" target="quiz.Quiz" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Quiz&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="quiz.Question" target="quiz.Quiz"/>
+    <UseRelation source="quiz.QuestionGroup" target="quiz.Quiz" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
