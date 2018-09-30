@@ -13,20 +13,37 @@ public class AccountFactory {
         Account accnt = null;
         
         if(accountType.equalsIgnoreCase("sysadmin")){
+            
+            /**
+             * There should be only three sysadmins created at the beginning.
+             * Potential use of singleton pattern here?
+             */
             accnt = new SystemAdministrator();
             System.out.println("Creating Sysadmin");
+            
         }else if (accountType.equalsIgnoreCase("admin")) {
+            
+            /**
+             * Admin should only be created by a sysadmin.
+             */
             accnt = new Administrator();
             System.out.println("Creating Admin");
+            
         } else if (accountType.equalsIgnoreCase("user")) {
+            
             accnt = new User();
             System.out.println("Creating User");
+            
         } else if (accountType.equalsIgnoreCase("guest")) {
+            
             accnt = new Guest();
             System.out.println("Creating Guest");
+            
         } else {
+            
             accnt = new Guest();
             System.out.println("Creating Guest");
+            
         }
 
         return accnt;
