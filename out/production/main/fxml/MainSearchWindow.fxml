@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainSearchWindowController">
+   <children>
+      <SplitPane dividerPositions="0.7190635451505016" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane>
+               <children>
+                  <VBox prefHeight="771.0" prefWidth="571.0" AnchorPane.bottomAnchor="-117.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <HBox fillHeight="false" prefHeight="83.0" prefWidth="571.0" spacing="10.0">
+                           <children>
+                              <VBox spacing="10.0" HBox.hgrow="NEVER">
+                                 <children>
+                                    <ComboBox prefWidth="150.0" />
+                                    <ComboBox prefWidth="150.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox spacing="10.0" HBox.hgrow="NEVER">
+                                 <children>
+                                    <ComboBox prefWidth="150.0" />
+                                    <ComboBox prefWidth="150.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox>
+                           <children>
+                              <VBox prefHeight="695.0" prefWidth="571.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TextField prefHeight="0.0" prefWidth="571.0" />
+                                    <ListView minHeight="487.0" prefHeight="674.0" prefWidth="571.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
