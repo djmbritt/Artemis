@@ -1,4 +1,4 @@
-package quiz;
+package com.sbnvw.artemis.quiz;
 
 import java.util.ArrayList;
 import java.util.List;

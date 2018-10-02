@@ -1,4 +1,4 @@
-package quiz;
+package com.sbnvw.artemis.quiz;
 
 /**
  *
