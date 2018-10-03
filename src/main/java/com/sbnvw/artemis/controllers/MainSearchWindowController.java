@@ -2,14 +2,11 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.canidae.dogs.Dog;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.cats.smallCats.Cat;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;

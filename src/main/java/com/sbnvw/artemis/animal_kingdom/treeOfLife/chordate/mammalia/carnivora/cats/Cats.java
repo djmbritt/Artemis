@@ -1,13 +1,13 @@
-package com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.cats;
+package com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats;
 
 import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.Carnivora;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora;
 
 /**
  *
  * @author Marcel van Wilgenburg
  */
-public class Cats extends Carnivora {
+public abstract class Cats extends Carnivora {
 
     private static int cats;
     private int catsID;

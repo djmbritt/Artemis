@@ -1,9 +1,8 @@
-package com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia;
+package com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia;
 
-import com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Meat;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate;
 
-public abstract class Mammalia extends Animal {
+public abstract class Mammalia extends Chordate {
 
     private static int mammals;
     private int mammalID;

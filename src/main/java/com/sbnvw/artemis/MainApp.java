@@ -1,6 +1,6 @@
 package com.sbnvw.artemis;
 
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora.cats.smallCats.Cat;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
 import java.io.IOException;
@@ -103,6 +103,10 @@ public class MainApp extends Application {
         stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.show();
+        
+        
+        Cat cat = new Cat("CAT");
+        
     }
 
     /**

@@ -1,8 +1,8 @@
-package com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.carnivora;
+package com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora;
 
 import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
 import com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Meat;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.mammalia.Mammalia;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.Mammalia;
 
 public abstract class Carnivora extends Mammalia {
 
