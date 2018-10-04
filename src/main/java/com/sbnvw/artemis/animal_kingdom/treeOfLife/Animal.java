@@ -103,18 +103,4 @@ public abstract class Animal implements Serializable{
         return this.getName();
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(this);
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
-    
-    
-
 }
