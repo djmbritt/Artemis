@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.sbnvw.artemis">
+  <ClassDiagramComponents>
+    <Class name="IOReader" package="com.sbnvw.artemis.io" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="IOWriter" package="com.sbnvw.artemis.io" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="animals" type="ArrayList&lt;Animal&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="saveAnimal" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Animal" name="animal"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Animal" package="com.sbnvw.artemis.animal_kingdom.treeOfLife" visibility="public" isAbstract="true" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="animals" type="int" visibility="private" isStatic="true"/>
+        <Field name="animalID" type="int" visibility="private" isFinal="true"/>
+        <Field name="name" type="String" visibility="private" isFinal="true"/>
+        <Field name="hasHeartBeat" type="boolean" visibility="private" isFinal="true"/>
+        <Field name="diet" type="Diet" visibility="private"/>
+        <Field name="fur" type="Fur" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAnimalID" returnType="int" visibility="public"/>
+        <Method name="getAnimals" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getHasHeartBeat" returnType="boolean" visibility="public"/>
+        <Method name="setDiet" returnType="void" visibility="public">
+          <Argument type="Diet" name="diet"/>
+        </Method>
+        <Method name="getDiet" returnType="Diet" visibility="public"/>
+        <Method name="setFur" returnType="void" visibility="public">
+          <Argument type="Fur" name="fur"/>
+        </Method>
+        <Method name="getFur" returnType="Fur" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mammalia" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia" visibility="public" isAbstract="true" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="mammals" type="int" visibility="private" isStatic="true"/>
+        <Field name="mammalID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMammalID" returnType="int" visibility="public"/>
+        <Method name="getMammals" returnType="int" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Cats" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats" visibility="public" isAbstract="true" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="cats" type="int" visibility="private" isStatic="true"/>
+        <Field name="catsID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCatID" returnType="int" visibility="public"/>
+        <Method name="getCats" returnType="int" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Canidae" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae" visibility="public" isAbstract="true" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Dog" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Carnivora" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora" visibility="public" isAbstract="true" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="carnivoras" type="int" visibility="private" isStatic="true"/>
+        <Field name="carnivoraID" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDiet" returnType="void" visibility="public">
+          <Argument type="Diet" name="diet"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Salmonidae" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.salmonidae" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Actinopterygii" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii" visibility="public" isAbstract="true" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Chordate" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate" visibility="public" isAbstract="true" xPosition="920.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Parrots" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots" visibility="public" isAbstract="true" xPosition="1220.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="OldWorldParrots" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.oldWorldParrots" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Birds" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds" visibility="public" isAbstract="true" xPosition="1820.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Interface name="Fur" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Methods>
+        <Method name="fur" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Long_Hear" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Feathers" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Short_Hear" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Eats_Meat" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="diet" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Diet" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="1220.0" yPosition="820.0">
+      <Methods>
+        <Method name="diet" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Eats_Plants" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="1520.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="diet" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SystemAdministrator" package="com.sbnvw.artemis.account" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserInformation" package="com.sbnvw.artemis.account" visibility="public" isAbstract="true" xPosition="2120.0" yPosition="820.0">
+      <Fields>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="firstName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="dateOfBirth" type="Date" visibility="private"/>
+        <Field name="sex" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="phoneNumber" type="int" visibility="private"/>
+        <Field name="addres" type="String" visibility="private"/>
+        <Field name="houseNumber" type="int" visibility="private"/>
+        <Field name="addition" type="String" visibility="private"/>
+        <Field name="postalCode" type="String" visibility="private"/>
+        <Field name="profilePicture" type="Image" visibility="private"/>
+        <Field name="dateAccountCreation" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUserName" returnType="String" visibility="public"/>
+        <Method name="setUserName" returnType="void" visibility="public">
+          <Argument type="String" name="userName"/>
+        </Method>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="firstName"/>
+        </Method>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="getDateOfBirth" returnType="Date" visibility="public"/>
+        <Method name="setDateOfBirth" returnType="void" visibility="public">
+          <Argument type="Date" name="dateOfBirth"/>
+        </Method>
+        <Method name="getSex" returnType="String" visibility="public"/>
+        <Method name="setSex" returnType="void" visibility="public">
+          <Argument type="String" name="sex"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPhoneNumber" returnType="int" visibility="public"/>
+        <Method name="setPhoneNumber" returnType="void" visibility="public">
+          <Argument type="int" name="phoneNumber"/>
+        </Method>
+        <Method name="getAddres" returnType="String" visibility="public"/>
+        <Method name="setAddres" returnType="void" visibility="public">
+          <Argument type="String" name="addres"/>
+        </Method>
+        <Method name="getHouseNumber" returnType="int" visibility="public"/>
+        <Method name="setHouseNumber" returnType="void" visibility="public">
+          <Argument type="int" name="houseNumber"/>
+        </Method>
+        <Method name="getAddition" returnType="String" visibility="public"/>
+        <Method name="setAddition" returnType="void" visibility="public">
+          <Argument type="String" name="addition"/>
+        </Method>
+        <Method name="getPostalCode" returnType="String" visibility="public"/>
+        <Method name="setPostalCode" returnType="void" visibility="public">
+          <Argument type="String" name="postalCode"/>
+        </Method>
+        <Method name="getProfilePicture" returnType="Image" visibility="public"/>
+        <Method name="setProfilePicture" returnType="void" visibility="public">
+          <Argument type="Image" name="profilePicture"/>
+        </Method>
+        <Method name="getDateAccountCreation" returnType="Date" visibility="public"/>
+        <Method name="setDateAccountCreation" returnType="void" visibility="public">
+          <Argument type="Date" name="dateAccountCreation"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Guest" package="com.sbnvw.artemis.account" visibility="public" xPosition="20.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Administrator" package="com.sbnvw.artemis.account" visibility="public" xPosition="320.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="User" package="com.sbnvw.artemis.account" visibility="public" xPosition="620.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="UserManagement" package="com.sbnvw.artemis.account" visibility="public" xPosition="920.0" yPosition="1220.0">
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="readUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="updateUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="deleteUser" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+    <Interface name="ArticleManagement" package="com.sbnvw.artemis.account" visibility="public" xPosition="1220.0" yPosition="1220.0">
+      <Methods>
+        <Method name="createArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="readArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="updateArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="deleteArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="suggestArticle" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+    <Class name="UserLogin" package="com.sbnvw.artemis.account" visibility="public" isAbstract="true" xPosition="1520.0" yPosition="1220.0">
+      <Fields>
+        <Field name="userID" type="Integer" visibility="private" isStatic="true"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUserID" returnType="int" visibility="public"/>
+        <Method name="getUserPassword" returnType="String" visibility="public"/>
+        <Method name="setuserPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="GetAccount" package="com.sbnvw.artemis.account" visibility="public" xPosition="1820.0" yPosition="1220.0">
+      <Methods>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="AccountFactory" package="com.sbnvw.artemis.account" visibility="public" xPosition="2120.0" yPosition="1220.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createAccount" returnType="GetAccount" visibility="public" isStatic="true">
+          <Argument type="String" name="accountType"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PreviewWindowController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="20.0" yPosition="1620.0">
+      <Fields>
+        <Field name="exPic" type="ImageView" visibility="private"/>
+        <Field name="header" type="Text" visibility="private"/>
+        <Field name="textField" type="TextArea" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="getController" returnType="PreviewWindowController" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LoginPageController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="320.0" yPosition="1620.0">
+      <Fields>
+        <Field name="adminName" type="String" visibility="private" isFinal="true"/>
+        <Field name="adminPass" type="String" visibility="private" isFinal="true"/>
+        <Field name="loginPage" type="VBox" visibility="private"/>
+        <Field name="userNameField" type="TextField" visibility="private"/>
+        <Field name="passwordField" type="PasswordField" visibility="private"/>
+        <Field name="loginBtn" type="Button" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="btnLogin" returnType="void" visibility="public">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="passLogin" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="event"/>
+        </Method>
+        <Method name="userLogin" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="event"/>
+        </Method>
+        <Method name="login" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="MainWindowController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="620.0" yPosition="1620.0">
+      <Fields>
+        <Field name="mainWindow" type="BorderPane" visibility="private"/>
+        <Field name="close" type="MenuItem" visibility="private"/>
+        <Field name="centerAnchor" type="AnchorPane" visibility="private"/>
+        <Field name="leftAnchor" type="AnchorPane" visibility="private"/>
+        <Field name="rightAnchor" type="AnchorPane" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="closeApp" returnType="void" visibility="package">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="loadLeftPane" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="loadRightPane" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="loadCenterPane" returnType="void" visibility="public">
+          <Argument type="String" name="path"/>
+        </Method>
+        <Method name="getCenterAnchor" returnType="AnchorPane" visibility="public"/>
+        <Method name="setCenterAnchor" returnType="void" visibility="public">
+          <Argument type="AnchorPane" name="centerAnchor"/>
+        </Method>
+        <Method name="getLeftAnchor" returnType="AnchorPane" visibility="public"/>
+        <Method name="setLeftAnchor" returnType="void" visibility="public">
+          <Argument type="AnchorPane" name="leftAnchor"/>
+        </Method>
+        <Method name="getRightAnchor" returnType="AnchorPane" visibility="public"/>
+        <Method name="setRightAnchor" returnType="void" visibility="public">
+          <Argument type="AnchorPane" name="rightAnchor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MakeAnimalPageController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="920.0" yPosition="1620.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainSearchWindowController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="1220.0" yPosition="1620.0">
+      <Fields>
+        <Field name="animalList" type="ListView&lt;?&gt;" visibility="private"/>
+        <Field name="prefWindow" type="AnchorPane" visibility="private"/>
+        <Field name="animals" type="ArrayList&lt;Animal&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+        <Method name="setAnimalsList" returnType="void" visibility="public">
+          <Argument type="ArrayList" name="list"/>
+        </Method>
+        <Method name="getSelectedItem" returnType="void" visibility="public">
+          <Argument type="MouseEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AdminMenuController" package="com.sbnvw.artemis.controllers" visibility="public" xPosition="1520.0" yPosition="1620.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="url"/>
+          <Argument type="ResourceBundle" name="rb"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MainApp" package="com.sbnvw.artemis" visibility="public" xPosition="1820.0" yPosition="1620.0">
+      <Fields>
+        <Field name="mainWindowController" type="MainWindowController" visibility="private" isStatic="true"/>
+        <Field name="mainSearchWindowController" type="MainSearchWindowController" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getMainWindowController" returnType="MainWindowController" visibility="public" isStatic="true"/>
+        <Method name="setMainWindowController" returnType="void" visibility="public" isStatic="true">
+          <Argument type="MainWindowController" name="MainWindowController"/>
+        </Method>
+        <Method name="getMainSearchWindowController" returnType="MainSearchWindowController" visibility="public" isStatic="true"/>
+        <Method name="setMainSearchWindowController" returnType="void" visibility="public" isStatic="true">
+          <Argument type="MainSearchWindowController" name="aMainSearchWindowController"/>
+        </Method>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="stage"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="loadFXMLFile" returnType="Object" visibility="public" isStatic="true">
+          <Argument type="Pane" name="parent"/>
+          <Argument type="String" name="fxmlFileName"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="diet" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.UserInformation"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.SystemAdministrator" target="com.sbnvw.artemis.account.GetAccount"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.GetAccount"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.UserManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.SystemAdministrator" target="com.sbnvw.artemis.account.UserInformation"/>
+    <HasRelation name="animals" source="com.sbnvw.artemis.io.IOWriter" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Animal&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.SystemAdministrator" target="com.sbnvw.artemis.account.UserManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.Mammalia"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.salmonidae.Salmonidae" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.Actinopterygii"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.Parrots" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.Birds"/>
+    <UseRelation source="com.sbnvw.artemis.controllers.PreviewWindowController" target="com.sbnvw.artemis.controllers.PreviewWindowController" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Feathers" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.GetAccount"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Long_Hear" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+    <HasRelation name="animals" source="com.sbnvw.artemis.controllers.MainSearchWindowController" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Animal&gt;"/>
+    <UseRelation source="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.Birds" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.UserInformation"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <UseRelation source="com.sbnvw.artemis.io.IOWriter" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.oldWorldParrots.OldWorldParrots" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.Parrots"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Plants" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet"/>
+    <HasRelation name="mainWindowController" source="com.sbnvw.artemis.MainApp" target="com.sbnvw.artemis.controllers.MainWindowController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sbnvw.artemis.account.AccountFactory" target="com.sbnvw.artemis.account.GetAccount" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.UserManagement"/>
+    <UseRelation source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.sbnvw.artemis.MainApp" target="com.sbnvw.artemis.controllers.MainSearchWindowController" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.Cats" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora"/>
+    <HasRelation name="fur" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.Canidae" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.Canidae"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.UserLogin"/>
+    <HasRelation name="mainSearchWindowController" source="com.sbnvw.artemis.MainApp" target="com.sbnvw.artemis.controllers.MainSearchWindowController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.Actinopterygii" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.Mammalia" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.UserInformation" target="com.sbnvw.artemis.account.UserLogin"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.GetAccount"/>
+    <UseRelation source="com.sbnvw.artemis.MainApp" target="com.sbnvw.artemis.controllers.MainWindowController" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Short_Hear" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Meat" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.Cats"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

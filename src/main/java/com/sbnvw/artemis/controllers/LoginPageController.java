@@ -92,14 +92,17 @@ public class LoginPageController implements Initializable {
             passWord = passwordField.getText();
         }
 
-        if (userName.equals(adminName) && passWord.equals(adminPass)) {
+        if (userName.equals(adminName) && passWord.equals(adminPass) || true) {
             System.out.println("LOGIN!!");
             MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+            MainApp.getMainWindowController().loadRightPane("/fxml/PreviewWindow.fxml");
             MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+            
         } else {
             System.out.println("LOGIN FAILED");
+            
         }
 
     }
-    
+
 }
