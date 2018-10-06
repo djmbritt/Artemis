@@ -30,7 +30,6 @@ public class MainWindowController implements Initializable {
 
     /**
      * Initializes the controller class.
-     *
      * @param url
      * @param rb
      */
@@ -126,5 +125,7 @@ public class MainWindowController implements Initializable {
     public void setRightAnchor(AnchorPane rightAnchor) {
         this.rightAnchor = rightAnchor;
     }
-
-}
+    
+    
+    
+    }

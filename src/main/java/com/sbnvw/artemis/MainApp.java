@@ -7,73 +7,40 @@ import com.sbnvw.artemis.controllers.MainWindowController;
 import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.IOException;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Marcel van Wilgenburg
+ * @author Zilverdrake
  */
 public class MainApp extends Application {
-
+    
     private static MainWindowController mainWindowController;
-    private static MainSearchWindowController mainSearchWindowController;
-
+    
     /**
-     * Returns the main window controller. this can be used to set and get
-     * loaded panes into the main window.
      *
-     * @return mainWindowController
+     * @return
      */
     public static MainWindowController getMainWindowController() {
         return mainWindowController;
     }
-
+    
     /**
-     * sets the main window controller. This should only happen on the fist boot
-     * of the program.
      *
-     * @param MainWindowController
+     * @param aMainWindowController
      */
-    public static void setMainWindowController(MainWindowController MainWindowController) {
-        mainWindowController = MainWindowController;
+    public static void setMainWindowController(MainWindowController aMainWindowController) {
+        mainWindowController = aMainWindowController;
     }
-
-    /**
-     * Returns the main search window controller. this can be used to acces the
-     * fields and atributes of the search window.
-     *
-     * @return mainSearchWidowController
-     */
-    public static MainSearchWindowController getMainSearchWindowController() {
-        return mainSearchWindowController;
-    }
-
-    /**
-     *
-     * @param aMainSearchWindowController
-     */
-    public static void setMainSearchWindowController(MainSearchWindowController aMainSearchWindowController) {
-        mainSearchWindowController = aMainSearchWindowController;
-    }
-
-    /**
-     * Starting method
-     *
-     * @param stage
-     * @throws Exception
-     */
+    
     @Override
     public void start(Stage stage) throws Exception {
-        /**
-         * Loads the root window to be set as the first element of the scene.
-         * This should always be the mainWindow for the program.
-         */
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
 
         /**
@@ -123,31 +90,35 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
     /**
-     * @param parent This should be the parent pane that should be replaced by
-     * the new pane.
+     *
+     * @param parent
      * @param fxmlFileName
      * @return
      */
     public static Object loadFXMLFile(Pane parent, String fxmlFileName) {
-
+        
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
             Pane pane = fxmlLoader.load();
-
+            
             parent.getChildren().addAll();
             parent.getChildren().add(pane);
             pane.prefWidthProperty().bind(parent.widthProperty());
             pane.prefHeightProperty().bind(parent.heightProperty());
-
+            
+            if (pane instanceof AnchorPane) {
+                System.out.println("I am an AnchorPane");
+            }
+            
             return fxmlLoader.getController();
-
+            
         } catch (IOException ex) {
             System.out.println(ex.getClass().getName() + ": " + ex.getMessage());
             return null;
         }
-
+        
     }
-
+    
 }

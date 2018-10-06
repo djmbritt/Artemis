@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class Administrator extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
+public class Administrator extends UserInformation implements ArticleManagement, GetAccount {
 
     public Administrator() {
     }
