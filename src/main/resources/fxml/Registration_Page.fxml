@@ -27,21 +27,21 @@
                     <children>
                         <VBox layoutX="349.0" layoutY="113.0" prefHeight="474.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <TextField promptText="First Name" />
-                                <TextField promptText="Last Name" />
-                                <DatePicker prefHeight="26.0" prefWidth="824.0" promptText="BirthDate" />
-                                <TextField promptText="Sex" />
-                                <TextField promptText="Address" />
-                                <TextField promptText="House Number" />
-                                <TextField promptText="Addition" />
-                                <TextField promptText="Postal Code" />
-                                <TextField promptText="Country" />
-                                <TextField promptText="Phone Number" />
-                                <TextField promptText="User Name" />
-                                <TextField promptText="Email" />
-                                <TextField promptText="Repeat Email" />
-                                <PasswordField promptText="Password" />
-                                <PasswordField promptText="Repeat Password" />
+                                <TextField fx:id="FirstNameID" promptText="First Name" />
+                                <TextField fx:id="LastNameID" promptText="Last Name" />
+                                <DatePicker fx:id="BirthDateID" prefHeight="26.0" prefWidth="824.0" promptText="BirthDate" />
+                                <TextField fx:id="SexID" promptText="Sex" />
+                                <TextField fx:id="AddressID" promptText="Address" />
+                                <TextField fx:id="HouseNumberID" promptText="House Number" />
+                                <TextField fx:id="AdditionID" promptText="Addition" />
+                                <TextField fx:id="PostalCodeID" promptText="Postal Code" />
+                                <TextField fx:id="CountryID" promptText="Country" />
+                                <TextField fx:id="PhoneNumberID" promptText="Phone Number" />
+                                <TextField fx:id="UserNameID" promptText="User Name" />
+                                <TextField fx:id="EmailID" promptText="Email" />
+                                <TextField fx:id="RepeatEmailID" promptText="Repeat Email" />
+                                <PasswordField fx:id="PasswordID" promptText="Password" />
+                                <PasswordField fx:id="RepeatPasswordID" promptText="Repeat Password" />
                                 <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
                                         <Button fx:id="resetBtnID" mnemonicParsing="false" onAction="#resetAction" prefHeight="45.0" prefWidth="145.0" text="Reset" />

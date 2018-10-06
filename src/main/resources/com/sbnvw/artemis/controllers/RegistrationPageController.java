@@ -6,11 +6,14 @@
 package com.sbnvw.artemis.controllers;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -21,10 +24,57 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private Button resetBtnID;
+    
     @FXML
     private Button cancelBtnID;
+    
     @FXML
     private Button SaveBtnID;
+
+    @FXML
+    private TextField FirstNameID;
+    
+    @FXML
+    private TextField LastNameID;
+
+    @FXML
+    private Date BirthDateID;
+
+    @FXML
+    private TextField SexID;
+
+    @FXML
+    private TextField AddressID;
+
+    @FXML
+    private TextField HouseNumberID;
+
+    @FXML
+    private TextField AdditionID;
+
+    @FXML
+    private TextField PostalCodeID;
+
+    @FXML
+    private TextField CountryID;
+
+    @FXML
+    private TextField PhoneNumberID;
+
+    @FXML
+    private TextField UserNameID;
+
+    @FXML
+    private TextField EmailID;
+
+    @FXML
+    private TextField RepeatEmailID;
+
+    @FXML
+    private PasswordField PasswordID;
+
+    @FXML
+    private PasswordField RepeatPasswordID;
 
     /**
      * Initializes the controller class.
@@ -32,7 +82,7 @@ public class RegistrationPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void resetAction(ActionEvent event) {
@@ -45,5 +95,5 @@ public class RegistrationPageController implements Initializable {
     @FXML
     private void saveAction(ActionEvent event) {
     }
-    
+
 }
