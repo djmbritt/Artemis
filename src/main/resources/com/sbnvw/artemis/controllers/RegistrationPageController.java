@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sbnvw.artemis.controllers;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -24,16 +23,16 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private Button resetBtnID;
-    
+
     @FXML
     private Button cancelBtnID;
-    
+
     @FXML
     private Button SaveBtnID;
 
     @FXML
     private TextField FirstNameID;
-    
+
     @FXML
     private TextField LastNameID;
 
@@ -78,6 +77,9 @@ public class RegistrationPageController implements Initializable {
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -86,6 +88,30 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private void resetAction(ActionEvent event) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setContentText("Are you sure you want to reset all data fields?");
+        confirmationAlert.setTitle("Confirm reset.");
+
+        confirmationAlert.showAndWait().ifPresent((response) -> {
+            if (response == ButtonType.OK) {
+                FirstNameID.setText("");
+                LastNameID.setText("");
+//                Figure out what the proper implementation for this should be.
+//                BirthDateID.setTime(DateFormat.getInstance()));
+                SexID.setText("");
+                AddressID.setText("");
+                HouseNumberID.setText("");
+                AdditionID.setText("");
+                PostalCodeID.setText("");
+                CountryID.setText("");
+                PhoneNumberID.setText("");
+                UserNameID.setText("");
+                EmailID.setText("");
+                RepeatEmailID.setText("");
+                PasswordID.setText("");
+                RepeatPasswordID.setText("");
+            }
+        });
     }
 
     @FXML

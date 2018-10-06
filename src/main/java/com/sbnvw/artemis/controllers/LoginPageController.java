@@ -31,6 +31,10 @@ public class LoginPageController implements Initializable {
     private PasswordField passwordField;
     @FXML
     private Button loginBtn;
+    @FXML
+    private Button forgotID;
+    @FXML
+    private Button registrationID;
 
     /**
      * Initializes the controller class.
@@ -50,6 +54,27 @@ public class LoginPageController implements Initializable {
     @FXML
     public void btnLogin(ActionEvent event) {
         login();
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void btnForgot(ActionEvent event) {
+
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void btnRegister(ActionEvent event) {
+        System.out.println("LOGIN!!");
+        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+        MainApp.getMainWindowController().loadCenterPane("/fxml/Registration_Page.fxml");
+
     }
 
     /**
@@ -101,5 +126,5 @@ public class LoginPageController implements Initializable {
         }
 
     }
-    
+
 }
