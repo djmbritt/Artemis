@@ -22,4 +22,16 @@ public abstract class Carnivora extends Mammalia {
         super.setDiet(new Eats_Meat());
     }
 
+    public int getCarnivoraID() {
+        return carnivoraID;
+    }
+
+    public static int getCarnivoras() {
+        return carnivoras;
+    }
+
+   
+    
+    
+
 }

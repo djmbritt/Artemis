@@ -1,8 +1,10 @@
 package com.sbnvw.artemis;
 
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
+import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -81,7 +83,7 @@ public class MainApp extends Application {
          */
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
-        
+
         /**
          * Sets the scene with the root as the startup window. the root should
          * be the mainWindow loaded by the FXML loader at the top of the method.
@@ -91,7 +93,7 @@ public class MainApp extends Application {
 
         /*
         * Sets the stage to the size of the users screen
-        */
+         */
         stage.setX(bounds.getMinX());
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
@@ -99,14 +101,15 @@ public class MainApp extends Application {
 
         /*
         * Loads the stage and sets the stage title.
-        */
+         */
         stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.show();
+
+        Animal cat = new Cat("CAT");
         
         
-        Cat cat = new Cat("CAT");
-        
+
     }
 
     /**
