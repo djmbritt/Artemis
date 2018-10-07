@@ -1,5 +1,6 @@
 package com.sbnvw.artemis.controllers;
 
+import com.sbnvw.artemis.MainApp;
 import java.net.URL;
 import java.text.DateFormat;
 import java.time.Instant;
@@ -88,6 +89,8 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private void resetAction(ActionEvent event) {
+                        System.out.println("RegistrationPageController.java::ResetAction");
+
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setContentText("Are you sure you want to reset all data fields?");
         confirmationAlert.setTitle("Confirm reset.");
@@ -116,6 +119,17 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private void cancelAction(ActionEvent event) {
+                System.out.println("RegistrationPageController.java::CancelAction");
+
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setContentText("Are you sure you want to cancel?");
+        confirmationAlert.setTitle("Confirm cancelation.");
+
+        confirmationAlert.showAndWait().ifPresent((response) -> {
+            if (response == ButtonType.OK) {
+                MainApp.getMainWindowController().loadCenterPane("/fxml/LoginPage.fxml");
+            }
+        });
     }
 
     @FXML

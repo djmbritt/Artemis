@@ -71,7 +71,7 @@ public class LoginPageController implements Initializable {
      */
     @FXML
     private void btnRegister(ActionEvent event) {
-        System.out.println("LOGIN!!");
+        System.out.println("LoginPageController.java::btnRegister");
         MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         MainApp.getMainWindowController().loadCenterPane("/fxml/Registration_Page.fxml");
 
