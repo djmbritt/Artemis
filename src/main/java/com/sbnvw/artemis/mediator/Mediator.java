@@ -13,4 +13,10 @@ public interface Mediator {
      * give them to the accounts. Some accounts can access certain animals that 
      * other accounts can't.
     */
+    public void getAnimals();
+    public void getAnimalProfile();
+    public void getUsers();
+    public void getUserProfile();
+    
+    
 }
