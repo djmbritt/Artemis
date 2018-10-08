@@ -6,8 +6,11 @@ package com.sbnvw.artemis.account;
  */
 public class SystemAdministrator extends UserInformation implements GetAccount {
 
+//    Public static final method
+    public static final SystemAdministrator INSTANCE = new SystemAdministrator();
+    
+/*    Lazy initialization method
     private static SystemAdministrator systemAdministrator = null;
-
     private synchronized static void createInstance() {
         if (systemAdministrator == null) {
             systemAdministrator = new SystemAdministrator();
@@ -20,6 +23,7 @@ public class SystemAdministrator extends UserInformation implements GetAccount {
         }
         return systemAdministrator;
     }
+*/
 
     /**
      * User Management
