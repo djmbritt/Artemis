@@ -144,7 +144,7 @@ public class MainWindowController implements Initializable {
     /**
      * creates pop up to confirm cancelation, if confirmed, returns to the login
      * screen.
-     * @param the name of the class calling this method
+     * @param className the name of the class calling this method
      */
     public void cancelAndReturnToMainWindow(String className) {
         System.out.println("Canceling and returning to main window from: " + className);
@@ -155,7 +155,8 @@ public class MainWindowController implements Initializable {
         confirmationAlert.showAndWait().ifPresent((response) -> {
             if (response == ButtonType.OK) {
                 try {
-                    MainApp.getMainWindowController().loadMainWindow();
+                    mainWindow.getChildren().clear();
+                    MainApp.loadMainWindow();
                 } catch (Exception e) {
                     System.out.println("Exception:: " + e);
                 }
@@ -163,34 +164,6 @@ public class MainWindowController implements Initializable {
         });
     }
 
-    /**
-     * clears the current mainwindow, clears it and creates a new scene and
-     * stage.
-     *
-     * @throws Exception
-     */
-    public void loadMainWindow() throws Exception {
-        mainWindow.getChildren().clear();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
-
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Styles.css");
-
-        Stage stage = getMainStage();
-
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
-
-        stage.getIcons().add(new Image("/img/index.png"));
-        stage.setTitle("Artemis");
-        stage.setScene(scene);
-        stage.show();
-    }
 
 }

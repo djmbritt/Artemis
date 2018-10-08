@@ -20,19 +20,19 @@ import javafx.stage.Stage;
  * @author Marcel van Wilgenburg
  */
 public class MainApp extends Application {
-    
+
     private static Stage mainStage;
     private static MainWindowController mainWindowController;
     private static MainSearchWindowController mainSearchWindowController;
 
-    public static Stage getMainStage(){
+    public static Stage getMainStage() {
         return mainStage;
     }
-    
-    public static void setMainStage(Stage setStage){
+
+    public static void setMainStage(Stage setStage) {
         mainStage = setStage;
     }
-    
+
     /**
      * Returns the main window controller. this can be used to set and get
      * loaded panes into the main window.
@@ -79,45 +79,10 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        
+
         setMainStage(stage);
-        
-        /**
-         * Loads the root window to be set as the first element of the scene.
-         * This should always be the mainWindow for the program.
-         */
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
 
-        /**
-         * Fetches the primary screen of the user. It will then get the bounds
-         * and sets them to the bounds variable. this results in the program
-         * always starting up at the correct size of the screen
-         */
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-
-        /**
-         * Sets the scene with the root as the startup window. the root should
-         * be the mainWindow loaded by the FXML loader at the top of the method.
-         */
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Styles.css");
-
-        /*
-        * Sets the stage to the size of the users screen
-         */
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
-
-        /*
-        * Loads the stage and sets the stage title.
-         */
-        stage.getIcons().add(new Image("/img/index.png"));
-        stage.setTitle("Artemis");
-        stage.setScene(scene);
-        stage.show();
+        loadMainWindow();
 
         Cat cat = new Cat("CAT");
 
@@ -157,6 +122,36 @@ public class MainApp extends Application {
         } catch (IOException ex) {
             System.out.println(ex.getClass().getName() + ": " + ex.getMessage());
             return null;
+        }
+
+    }
+
+    /**
+     * Restart the stage and the root, load the mainwindow to return to the login page.
+     */
+    public static void loadMainWindow() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/mainWindow.fxml"));
+            Parent root = fxmlLoader.load();
+            Screen screen = Screen.getPrimary();
+            Rectangle2D bounds = screen.getVisualBounds();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+
+            Stage stage = getMainStage();
+
+            stage.setX(bounds.getMinX());
+            stage.setY(bounds.getMinY());
+            stage.setWidth(bounds.getWidth());
+            stage.setHeight(bounds.getHeight());
+
+            stage.getIcons().add(new Image("/img/index.png"));
+            stage.setTitle("Artemis");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Exception:: " + e);
         }
 
     }
