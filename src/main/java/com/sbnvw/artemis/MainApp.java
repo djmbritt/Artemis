@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -19,10 +20,19 @@ import javafx.stage.Stage;
  * @author Marcel van Wilgenburg
  */
 public class MainApp extends Application {
-
+    
+    private static Stage mainStage;
     private static MainWindowController mainWindowController;
     private static MainSearchWindowController mainSearchWindowController;
 
+    public static Stage getMainStage(){
+        return mainStage;
+    }
+    
+    public static void setMainStage(Stage setStage){
+        mainStage = setStage;
+    }
+    
     /**
      * Returns the main window controller. this can be used to set and get
      * loaded panes into the main window.
@@ -69,6 +79,9 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
+        
+        setMainStage(stage);
+        
         /**
          * Loads the root window to be set as the first element of the scene.
          * This should always be the mainWindow for the program.
@@ -82,7 +95,7 @@ public class MainApp extends Application {
          */
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
-        
+
         /**
          * Sets the scene with the root as the startup window. the root should
          * be the mainWindow loaded by the FXML loader at the top of the method.
@@ -92,7 +105,7 @@ public class MainApp extends Application {
 
         /*
         * Sets the stage to the size of the users screen
-        */
+         */
         stage.setX(bounds.getMinX());
         stage.setY(bounds.getMinY());
         stage.setWidth(bounds.getWidth());
@@ -100,14 +113,14 @@ public class MainApp extends Application {
 
         /*
         * Loads the stage and sets the stage title.
-        */
+         */
+        stage.getIcons().add(new Image("/img/index.png"));
         stage.setTitle("Artemis");
         stage.setScene(scene);
         stage.show();
-        
-        
+
         Cat cat = new Cat("CAT");
-        
+
     }
 
     /**
@@ -147,5 +160,4 @@ public class MainApp extends Application {
         }
 
     }
-
 }
