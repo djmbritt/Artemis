@@ -1,14 +1,24 @@
 package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
+import static com.sbnvw.artemis.MainApp.getMainStage;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -42,6 +52,10 @@ public class MainWindowController implements Initializable {
 
     }
 
+    /**
+     * Closses the app.
+     * @param event 
+     */
     @FXML
     void closeApp(ActionEvent event) {
 
@@ -126,5 +140,30 @@ public class MainWindowController implements Initializable {
     public void setRightAnchor(AnchorPane rightAnchor) {
         this.rightAnchor = rightAnchor;
     }
+
+    /**
+     * creates pop up to confirm cancelation, if confirmed, returns to the login
+     * screen.
+     * @param className the name of the class calling this method
+     */
+    public void cancelAndReturnToMainWindow(String className) {
+        System.out.println("Canceling and returning to main window from: " + className);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setContentText("Are you sure you want to cancel?");
+        confirmationAlert.setTitle("Confirm cancelation.");
+
+        confirmationAlert.showAndWait().ifPresent((response) -> {
+            if (response == ButtonType.OK) {
+                try {
+                    mainWindow.getChildren().clear();
+                    MainApp.loadMainWindow();
+                } catch (Exception e) {
+                    System.out.println("Exception:: " + e);
+                }
+            }
+        });
+    }
+
+
 
 }

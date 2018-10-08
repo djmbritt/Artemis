@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class User extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
+public class User extends UserInformation implements ArticleManagement, GetAccount {
 
     public User() {
     }

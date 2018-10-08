@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -31,6 +32,10 @@ public class LoginPageController implements Initializable {
     private PasswordField passwordField;
     @FXML
     private Button loginBtn;
+    @FXML
+    private Button forgotID;
+    @FXML
+    private Button registrationID;
 
     /**
      * Initializes the controller class.
@@ -50,6 +55,26 @@ public class LoginPageController implements Initializable {
     @FXML
     public void btnLogin(ActionEvent event) {
         login();
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void btnForgot(ActionEvent event) {
+        MainApp.getMainWindowController().loadCenterPane("/fxml/Forgot_Login_Page.fxml");
+    }
+
+    /**
+     *
+     * @param event
+     */
+    @FXML
+    private void btnRegister(ActionEvent event) {
+        System.out.println("LoginPageController.java::btnRegister");
+        MainApp.getMainWindowController().loadCenterPane("/fxml/Registration_Page.fxml");
+
     }
 
     /**
@@ -92,15 +117,14 @@ public class LoginPageController implements Initializable {
             passWord = passwordField.getText();
         }
 
-        if (userName.equals(adminName) && passWord.equals(adminPass) || true) {
+        if (userName.equals(adminName) && passWord.equals(adminPass)) {
             System.out.println("LOGIN!!");
             MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
-            MainApp.getMainWindowController().loadRightPane("/fxml/PreviewWindow.fxml");
             MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
-            
         } else {
             System.out.println("LOGIN FAILED");
-            
+            Alert failedLoginAlert = new Alert(Alert.AlertType.ERROR, "Login failed. Please try again.");
+            failedLoginAlert.showAndWait();
         }
 
     }

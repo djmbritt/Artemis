@@ -3,10 +3,10 @@ package com.sbnvw.artemis.animal_kingdom.treeOfLife;
 import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
 import com.sbnvw.artemis.animal_kingdom.traits.fur.Fur;
 import com.sbnvw.artemis.io.IOWriter;
-import java.io.IOException;
+import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.Serializable;
 
-public abstract class Animal implements Serializable{
+public abstract class Animal implements Serializable {
 
     private static int animals;
     private final int animalID;
@@ -18,19 +18,19 @@ public abstract class Animal implements Serializable{
     /**
      *
      * @param name
-     * 
+     *
      */
     public Animal(String name) {
         this.name = name;
         this.animalID = animals;
         animals++;
-        IOWriter.saveAnimal(this);
+        saveAnimal();
 
     }
 
     /**
      *
-     * @return 
+     * @return
      */
     public int getAnimalID() {
         return animalID;
@@ -101,6 +101,17 @@ public abstract class Animal implements Serializable{
     @Override
     public String toString() {
         return this.getName();
+    }
+
+    private void saveAnimal() {
+
+        IOWriter.saveAnimal(this);
+
+    }
+    
+    private void addAnimalToList(){
+        
+        AnimalManager.addAnimalToList(this);
     }
 
 }
