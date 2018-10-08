@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -62,7 +63,7 @@ public class LoginPageController implements Initializable {
      */
     @FXML
     private void btnForgot(ActionEvent event) {
-
+        MainApp.getMainWindowController().loadCenterPane("/fxml/Forgot_Login_Page.fxml");
     }
 
     /**
@@ -72,7 +73,6 @@ public class LoginPageController implements Initializable {
     @FXML
     private void btnRegister(ActionEvent event) {
         System.out.println("LoginPageController.java::btnRegister");
-        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         MainApp.getMainWindowController().loadCenterPane("/fxml/Registration_Page.fxml");
 
     }
@@ -123,6 +123,8 @@ public class LoginPageController implements Initializable {
             MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
         } else {
             System.out.println("LOGIN FAILED");
+            Alert failedLoginAlert = new Alert(Alert.AlertType.ERROR, "Login failed. Please try again.");
+            failedLoginAlert.showAndWait();
         }
 
     }

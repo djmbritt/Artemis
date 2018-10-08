@@ -52,6 +52,7 @@
                                 </HBox>
                             </children>
                         </VBox>
+
                     </children>
                 </AnchorPane>
             </items>

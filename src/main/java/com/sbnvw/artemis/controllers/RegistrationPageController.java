@@ -22,42 +22,54 @@ import javafx.scene.control.TextField;
  */
 public class RegistrationPageController implements Initializable {
 
-
     @FXML
     private Button cancelBtnID;
-
 
     @FXML
     private TextField FirstNameID;
 
+    @FXML
     private TextField LastNameID;
 
-
+    @FXML
     private TextField SexID;
 
+    @FXML
     private TextField AddressID;
 
+    @FXML
     private TextField HouseNumberID;
 
+    @FXML
     private TextField AdditionID;
 
+    @FXML
     private TextField PostalCodeID;
 
+    @FXML
     private TextField CountryID;
 
+    @FXML
     private TextField PhoneNumberID;
 
+    @FXML
     private TextField UserNameID;
 
+    @FXML
     private TextField EmailID;
 
+    @FXML
     private TextField RepeatEmailID;
 
+    @FXML
     private PasswordField PasswordID;
 
+    @FXML
     private PasswordField RepeatPasswordID;
     @FXML
-    private Button SendBtnID;
+    private Button resetBtnID;
+    @FXML
+    private Button SaveBtnID;
 
     /**
      * Initializes the controller class.
@@ -70,8 +82,9 @@ public class RegistrationPageController implements Initializable {
         // TODO
     }
 
+    @FXML
     private void resetAction(ActionEvent event) {
-                        System.out.println("RegistrationPageController.java::ResetAction");
+        System.out.println("RegistrationPageController.java::ResetAction");
 
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setContentText("Are you sure you want to reset all data fields?");
@@ -101,21 +114,11 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private void cancelAction(ActionEvent event) {
-                System.out.println("RegistrationPageController.java::CancelAction");
-
-        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setContentText("Are you sure you want to cancel?");
-        confirmationAlert.setTitle("Confirm cancelation.");
-
-        confirmationAlert.showAndWait().ifPresent((response) -> {
-            if (response == ButtonType.OK) {
-                MainApp.getMainWindowController().loadCenterPane("/fxml/LoginPage.fxml");
-            }
-        });
+        MainApp.getMainWindowController().cancelAndReturnToMainWindow(this.getClass().getSimpleName());
     }
 
     @FXML
-    private void SendAction(ActionEvent event) {
+    private void saveAction(ActionEvent event) {
     }
 
 }

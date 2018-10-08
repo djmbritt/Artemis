@@ -5,6 +5,7 @@
  */
 package com.sbnvw.artemis.controllers;
 
+import com.sbnvw.artemis.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -37,6 +38,7 @@ public class ForgotLoginPageController implements Initializable {
 
     @FXML
     private void cancelAction(ActionEvent event) {
+        MainApp.getMainWindowController().cancelAndReturnToMainWindow(this.getClass().getSimpleName());
     }
 
     @FXML
