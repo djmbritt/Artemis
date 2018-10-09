@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -56,7 +57,8 @@ public class MainWindowController implements Initializable {
 
     /**
      * Closses the app.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     void closeApp(ActionEvent event) {
@@ -146,35 +148,30 @@ public class MainWindowController implements Initializable {
     /**
      * creates pop up to confirm cancelation, if confirmed, returns to the login
      * screen.
-     * @param className the name of the class calling this method to be printed to the console.
+     *
+     * @param className the name of the class calling this method to be printed
+     * to the console.
      */
     public void cancelAndReturnToMainWindow(String className) {
         System.out.println("Canceling and returning to main window from: " + className);
-        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setContentText("Are you sure?");
-        confirmationAlert.setTitle("Please confirm.");
-
-        confirmationAlert.showAndWait().ifPresent((response) -> {
-            if (response == ButtonType.OK) {
-                try {
+        
+        new Alert(Alert.AlertType.CONFIRMATION, "Please confirm.")
+                .showAndWait()
+                .filter(response -> response == ButtonType.OK)
+                .ifPresent(response -> {
                     mainWindow.getChildren().clear();
                     MainApp.loadMainWindow();
-                } catch (Exception e) {
-                    System.out.println("Exception:: " + e);
-                }
-            }
-        });
+                });
     }
 
     /**
      * Logout and return to login screen.
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     private void logOut(ActionEvent event) {
         cancelAndReturnToMainWindow(this.getClass().getSimpleName());
     }
-
-
 
 }
