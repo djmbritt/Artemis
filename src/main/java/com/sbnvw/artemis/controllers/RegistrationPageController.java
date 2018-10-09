@@ -2,18 +2,19 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import java.net.URL;
-import java.text.DateFormat;
-import java.time.Instant;
-import java.util.Date;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -66,10 +67,13 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private PasswordField RepeatPasswordID;
+
     @FXML
     private Button resetBtnID;
     @FXML
     private Button SaveBtnID;
+    @FXML
+    private VBox valueFields;
 
     /**
      * Initializes the controller class.
@@ -86,30 +90,18 @@ public class RegistrationPageController implements Initializable {
     private void resetAction(ActionEvent event) {
         System.out.println("RegistrationPageController.java::ResetAction");
 
-        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setContentText("Are you sure you want to reset all data fields?");
-        confirmationAlert.setTitle("Confirm reset.");
-
-        confirmationAlert.showAndWait().ifPresent((response) -> {
-            if (response == ButtonType.OK) {
-                FirstNameID.setText("");
-                LastNameID.setText("");
-//                Figure out what the proper implementation for this should be.
-//                BirthDateID.setTime(DateFormat.getInstance()));
-                SexID.setText("");
-                AddressID.setText("");
-                HouseNumberID.setText("");
-                AdditionID.setText("");
-                PostalCodeID.setText("");
-                CountryID.setText("");
-                PhoneNumberID.setText("");
-                UserNameID.setText("");
-                EmailID.setText("");
-                RepeatEmailID.setText("");
-                PasswordID.setText("");
-                RepeatPasswordID.setText("");
-            }
-        });
+        new Alert(Alert.AlertType.CONFIRMATION, "Reset all fields?")
+                .showAndWait()
+                .filter(response -> response == ButtonType.OK)
+                .ifPresent(response -> {
+                    valueFields
+                            .getChildren()
+                            .filtered(node -> node instanceof TextField)
+                            .forEach(node -> {
+                                System.out.println("NodeID: " + node.getId());
+                                ((TextField) node).setText("");
+                            });
+                });
     }
 
     @FXML
@@ -119,6 +111,31 @@ public class RegistrationPageController implements Initializable {
 
     @FXML
     private void saveAction(ActionEvent event) {
+
+        if (!PasswordID.getText().equals(RepeatPasswordID.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Repeat password does not match.").showAndWait();
+        }
+
+        if (!EmailID.getText().equals(RepeatEmailID.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Repeat email does not match.").showAndWait();
+        }
+
+        Boolean allFieldsFilledIn = valueFields
+                .getChildren()
+                .filtered(node -> node instanceof TextField)
+                .filtered(node -> ((TextField) node).getText().equals(""))
+                .isEmpty();
+        
+        
+        if (!allFieldsFilledIn) {
+            new Alert(Alert.AlertType.ERROR, "Not all fields are filled in.").showAndWait();
+        } else {
+            //TODO create new user here. 
+            //TODO edit account factory class in order to pass values to account being instantiated.
+        }
+
     }
 
 }
+
+ 
