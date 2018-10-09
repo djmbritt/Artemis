@@ -37,6 +37,8 @@ public class MainWindowController implements Initializable {
     private AnchorPane leftAnchor;
     @FXML
     private AnchorPane rightAnchor;
+    @FXML
+    private MenuItem logoutID;
 
     /**
      * Initializes the controller class.
@@ -144,13 +146,13 @@ public class MainWindowController implements Initializable {
     /**
      * creates pop up to confirm cancelation, if confirmed, returns to the login
      * screen.
-     * @param className the name of the class calling this method
+     * @param className the name of the class calling this method to be printed to the console.
      */
     public void cancelAndReturnToMainWindow(String className) {
         System.out.println("Canceling and returning to main window from: " + className);
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmationAlert.setContentText("Are you sure you want to cancel?");
-        confirmationAlert.setTitle("Confirm cancelation.");
+        confirmationAlert.setContentText("Are you sure?");
+        confirmationAlert.setTitle("Please confirm.");
 
         confirmationAlert.showAndWait().ifPresent((response) -> {
             if (response == ButtonType.OK) {
@@ -162,6 +164,15 @@ public class MainWindowController implements Initializable {
                 }
             }
         });
+    }
+
+    /**
+     * Logout and return to login screen.
+     * @param event 
+     */
+    @FXML
+    private void logOut(ActionEvent event) {
+        cancelAndReturnToMainWindow(this.getClass().getSimpleName());
     }
 
 
