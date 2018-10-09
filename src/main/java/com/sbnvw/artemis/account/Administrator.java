@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class Administrator extends UserInformation implements ArticleManagement, GetAccount {
+public class Administrator extends UserInformation implements ArticleManagement {
 
     public Administrator() {
     }
@@ -68,13 +68,5 @@ public class Administrator extends UserInformation implements ArticleManagement,
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * 
-     * @return Current GetAccount Type
-     */
-    @Override
-    public String getAccountType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

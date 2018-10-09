@@ -1,5 +1,7 @@
 package com.sbnvw.artemis.account;
 
+import com.sbnvw.artemis.io.IOWriter;
+
 /**
  *
  * @author djmbritt
@@ -9,21 +11,16 @@ public class AccountFactory {
     public AccountFactory() {
     }
 
-    public static GetAccount createAccount(String accountType) {
-        GetAccount accnt = null;
+    /**
+     * Account factory method for returning a new account type. Also save the
+     * newly created user to the users.dat file with IOWriter.saveUser().
+     *
+     * @param accountType available: {"admin", "user", "guest"}
+     * @return object of type UserLogin
+     */
+    public static UserLogin createAccount(String accountType) {
+        UserLogin accnt = null;
 
-        /**
-         * There should be only three sysadmins created at the beginning.
-         * Potential use of singleton pattern here?
-         */
-        /*
-        if(accountType.equalsIgnoreCase("sysadmin")){
-            
-            accnt = new SystemAdministrator();
-            System.out.println("Creating Sysadmin");
-            
-        }else
-         */
         if (accountType.equalsIgnoreCase("admin")) {
 
             /**
@@ -48,7 +45,8 @@ public class AccountFactory {
 
         }
 
-        return null;
+        IOWriter.saveUser(accnt);
+        return accnt;
     }
 
 }
