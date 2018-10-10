@@ -36,6 +36,10 @@ public class IOWriter {
         }
     }
 
+    /**
+     * Save animal to disk, saves it in the location specified in IOWriter::ANIMALFILELOCATION
+     * @param animal 
+     */
     public static void saveAnimal(Animal animal) {
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ANIMALFILELOCATION));) {
@@ -50,6 +54,10 @@ public class IOWriter {
 
     }
 
+    /**
+     * Save user to disk, saves it in the location specified in IOWriter::USERFILELOCATION
+     * @param user of type USERLOGIN
+     */
     public static void saveUser(UserLogin user) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USERFILELOCATION));) {
             users.add(user);
