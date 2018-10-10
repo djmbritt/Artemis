@@ -1,5 +1,8 @@
 package com.sbnvw.artemis.account;
 
+import javafx.scene.image.Image;
+import java.util.Date;
+
 /**
  *
  * @author djmbritt
@@ -11,6 +14,15 @@ public class SystemAdministrator extends UserInformation {
      * Using the public static final method
      */
     public static final SystemAdministrator INSTANCE = new SystemAdministrator();
+    
+    private SystemAdministrator(){
+    
+        super("sysadmin", "sysadmin", "System", "Administrator", 
+                new Date(System.currentTimeMillis()), "androgynous", 
+                "sysadmin@artemis.nl", "0205954955", "Wibautstraat", 3, "b", 
+                "1091 GH", new Image("/img/sysadmin.jpg"));
+    
+    }
     
 /*    Lazy initialization method
     private static SystemAdministrator systemAdministrator = null;
