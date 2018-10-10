@@ -21,7 +21,7 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
     private String email;
     private String phoneNumber;
     private String addres;
-    private int houseNumber;
+    private String houseNumber;
     private String addition;
     private String postalCode;
     private Image profilePicture;
@@ -33,7 +33,7 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
 
     public UserInformation(String password, String userName, String firstName, 
             String lastName, Date dateOfBirth, String sex, String email, 
-            String phoneNumber, String addres, int houseNumber, String addition,
+            String phoneNumber, String addres, String houseNumber, String addition,
             String postalCode, Image profilePicture) {
         super(password);
         this.userName = userName;
@@ -115,11 +115,11 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         this.addres = addres;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 
