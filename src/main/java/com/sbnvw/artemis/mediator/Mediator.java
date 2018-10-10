@@ -2,7 +2,7 @@ package com.sbnvw.artemis.mediator;
 
 /**
  *
- * @author dono
+ * @author Donovan Schaafsma
  */
 public interface Mediator {
     
