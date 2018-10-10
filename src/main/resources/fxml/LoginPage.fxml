@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="loginPage" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.LoginPageController">
+<VBox fx:id="loginFields" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.LoginPageController">
    <children>
       <TextField fx:id="userNameField" minHeight="25.0" minWidth="200.0" onKeyReleased="#userLogin" promptText="Username / Email" />
       <PasswordField fx:id="passwordField" minHeight="25.0" minWidth="200.0" onKeyReleased="#passLogin" promptText="Password" />
