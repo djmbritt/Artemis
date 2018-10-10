@@ -17,16 +17,21 @@ public class IOWriter {
 
     private static final String ANIMALFILELOCATION = "animals.dat";
     private static ArrayList<Animal> animals = new ArrayList<>();
-    
+
     private static final String USERFILELOCATION = "users.dat";
     private static ArrayList<UserLogin> users = new ArrayList<>();
-    
-    public static String fileLocation(String userOrAnimal){
+
+    /**
+     * return File location path of animal or user.
+     * @param userOrAnimal {"user", "animal"}
+     * @return 
+     */
+    public static String fileLocation(String userOrAnimal) {
         if (userOrAnimal.equalsIgnoreCase("animal")) {
             return ANIMALFILELOCATION;
         } else if (userOrAnimal.equalsIgnoreCase("user")) {
             return USERFILELOCATION;
-        }else{
+        } else {
             return null;
         }
     }
