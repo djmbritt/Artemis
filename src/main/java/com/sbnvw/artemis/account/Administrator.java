@@ -5,7 +5,7 @@
  */
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
+import javafx.scene.image.Image;
 import java.util.Date;
 
 /**
@@ -19,8 +19,12 @@ public class Administrator extends UserInformation implements ArticleManagement 
     public Administrator() {
     }
 
-    public Administrator(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
+    public Administrator(String password, String userName, String firstName, 
+            String lastName, Date dateOfBirth, String sex, String email, 
+            String phoneNumber, String addres, String houseNumber, String addition, 
+            String postalCode, Image profilePicture) {
+        super(password, userName, firstName, lastName, dateOfBirth, sex, email, 
+                phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
     }
 
     @Override
