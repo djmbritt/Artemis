@@ -19,6 +19,10 @@ public class AccountFactory {
      * @return object of type UserLogin
      */
     public static UserLogin createAccount(String accountType) {
+        
+        //TODO implement the passing of the parameters for the construction of the account classes.
+        //TODO implement the saving of the users in this class.
+        
         UserLogin accnt = null;
 
         if (accountType.equalsIgnoreCase("admin")) {
