@@ -35,7 +35,7 @@ public class IOUsers implements IOStrategy<UserInformation> {
     public ArrayList<UserInformation> loadData() {
         ArrayList<UserInformation> users = new ArrayList<>();
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(IOWriter.fileLocation("user")))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(USERFILELOCATION))) {
             users.addAll((ArrayList<UserInformation>) ois.readObject());
         } catch (Exception ex) {
             Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
