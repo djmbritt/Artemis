@@ -2,6 +2,9 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.account.AccountFactory;
+import com.sbnvw.artemis.account.UserInformation;
+import com.sbnvw.artemis.account.UserLogin;
+import com.sbnvw.artemis.io.IOReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -26,7 +29,7 @@ public class LoginPageController implements Initializable {
     private final String adminPass = "Admin";
 
     @FXML
-    private VBox loginPage;
+    private VBox loginFields;
     @FXML
     private TextField userNameField;
     @FXML
@@ -57,7 +60,7 @@ public class LoginPageController implements Initializable {
      */
     @FXML
     public void btnLogin(ActionEvent event) {
-        login();
+        pseudoLogin();
     }
 
     /**
@@ -87,7 +90,7 @@ public class LoginPageController implements Initializable {
     @FXML
     public void passLogin(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
-            login();
+            pseudoLogin();
         }
 
     }
@@ -97,13 +100,13 @@ public class LoginPageController implements Initializable {
      * @param event
      */
     @FXML
-    public void userLogin(KeyEvent event) {
+    public void userKeyLogin(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
-            login();
+            pseudoLogin();
         }
     }
 
-    private void login() {
+    private void pseudoLogin() {
 
         String userName;
         String passWord;
@@ -131,15 +134,53 @@ public class LoginPageController implements Initializable {
 
     }
 
+    private void login() {
+
+        Boolean areFieldsFilledIn = loginFields
+                .getChildren()
+                .filtered(node -> node instanceof TextField)
+                .filtered(node -> ((TextField) node).getText().isEmpty())
+                .isEmpty();
+
+        if (!areFieldsFilledIn) {
+            new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").showAndWait();
+        } else {
+            
+            IOReader.loadUserList().stream().filter(user -> userNameField.equals(user.getUserName()));
+            
+            IOReader.loadUserList().forEach(user -> {
+                if (user.getUserName().equals(userNameField.getText()) && user.getUserPassword().equals(passwordField.getText())) {
+                    
+                    if (user.getClass().getName().equalsIgnoreCase("user")) {
+                        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+                        MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+                    }
+
+                    if (user.getClass().getName().equalsIgnoreCase("admin")) {
+                        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+                        MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
+                    }
+
+                    if (user.getClass().getName().equalsIgnoreCase("sysadmin")) {
+                        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+                        MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
+                    }
+                    
+                    return;
+                }
+            });
+        }
+
+    }
+
     @FXML
     private void btnGuestLogin(ActionEvent event) {
-        
+
         AccountFactory.createAccount("guest");
-        
+
         MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
-            
-            
+
     }
 
 }
