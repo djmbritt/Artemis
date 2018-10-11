@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 /**
  *
  * @author Marcel van Wilgenburg
+ * 
+ * DEPRECATED!
  */
 public class IOWriter {
 

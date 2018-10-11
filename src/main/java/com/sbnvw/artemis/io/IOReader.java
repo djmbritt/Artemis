@@ -1,5 +1,6 @@
 package com.sbnvw.artemis.io;
 
+import com.sbnvw.artemis.account.UserInformation;
 import com.sbnvw.artemis.account.UserLogin;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import java.io.FileInputStream;
@@ -32,13 +33,13 @@ public class IOReader {
 
     /**
      * load the list of users saved to disk.
-     * @return ArrayList<UserLogin>
+     * @return ArrayList<UserInformation>
      */
-    public static ArrayList<UserLogin> loadUserList() {
-        ArrayList<UserLogin> users = new ArrayList<>();
+    public static ArrayList<UserInformation> loadUserList() {
+        ArrayList<UserInformation> users = new ArrayList<>();
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(IOWriter.fileLocation("user")))) {
-            users.addAll((ArrayList<UserLogin>) ois.readObject());
+            users.addAll((ArrayList<UserInformation>) ois.readObject());
         } catch (Exception ex) {
             Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
 
