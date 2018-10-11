@@ -1,7 +1,7 @@
 package com.sbnvw.artemis.account;
 
-import com.sbnvw.artemis.io.IOWriter;
-import javafx.scene.image.Image;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
 import java.util.Date;
 
 /**
@@ -41,8 +41,8 @@ public class SystemAdministrator extends UserInformation {
                  "1091 GH",                             //PostalCode
                  null                                   //ProfileImage
         );
-
-        IOWriter.saveUser(this.INSTANCE);
+        
+        new IOContext(new IOUsers()).save(this.INSTANCE);
 
     }
 

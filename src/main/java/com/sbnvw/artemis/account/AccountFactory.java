@@ -1,6 +1,8 @@
 package com.sbnvw.artemis.account;
 
-import com.sbnvw.artemis.io.IOWriter;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
+
 
 /**
  *
@@ -48,8 +50,8 @@ public class AccountFactory {
             return null;
 
         }
-
-        IOWriter.saveUser(accnt);
+        
+        new IOContext(new IOUsers()).save(accnt);
         return accnt;
     }
 

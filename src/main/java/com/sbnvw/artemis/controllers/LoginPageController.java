@@ -4,7 +4,8 @@ import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.account.AccountFactory;
 import com.sbnvw.artemis.account.UserInformation;
 import com.sbnvw.artemis.account.UserLogin;
-import com.sbnvw.artemis.io.IOReader;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -146,10 +147,11 @@ public class LoginPageController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").showAndWait();
         } else {
             
-            IOReader.loadUserList().stream().filter(user -> userNameField.equals(user.getUserName()));
+            new IOContext(new IOUsers()).load().stream().filter(user -> userNameField.equals(((UserInformation)user).getUserName()));
             
-            IOReader.loadUserList().forEach(user -> {
-                if (user.getUserName().equals(userNameField.getText()) && user.getUserPassword().equals(passwordField.getText())) {
+            new IOContext(new IOUsers()).load().forEach(user -> {
+                
+                if (((UserInformation)user).getUserName().equals(userNameField.getText()) && ((UserInformation)user).getUserPassword().equals(passwordField.getText())) {
                     
                     if (user.getClass().getName().equalsIgnoreCase("user")) {
                         MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
