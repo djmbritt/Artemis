@@ -27,7 +27,7 @@ public class IOUsers implements IOStrategy<UserInformation> {
             oos.writeObject(users);
             oos.close();
         } catch (IOException ex) {
-            Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOUsers.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -38,7 +38,7 @@ public class IOUsers implements IOStrategy<UserInformation> {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(USERFILELOCATION))) {
             users.addAll((ArrayList<UserInformation>) ois.readObject());
         } catch (Exception ex) {
-            Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOUsers.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 

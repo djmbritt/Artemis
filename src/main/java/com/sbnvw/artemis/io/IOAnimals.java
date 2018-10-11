@@ -33,7 +33,7 @@ public class IOAnimals implements IOStrategy<Animal> {
             oos.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOAnimals.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -44,7 +44,7 @@ public class IOAnimals implements IOStrategy<Animal> {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ANIMALFILELOCATION))) {
             animals.addAll((ArrayList<Animal>) ois.readObject());
         } catch (Exception ex) {
-            Logger.getLogger(IOWriter.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOAnimals.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return animals;

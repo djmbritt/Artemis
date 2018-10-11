@@ -6,7 +6,6 @@ import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
 import com.sbnvw.artemis.io.IOAnimals;
 import com.sbnvw.artemis.io.IOContext;
-import com.sbnvw.artemis.io.IOReader;
 import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
 import javafx.application.Application;
