@@ -1,8 +1,12 @@
 package com.sbnvw.artemis;
 
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
+import com.sbnvw.artemis.account.Administrator;
+import com.sbnvw.artemis.account.SystemAdministrator;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
+import com.sbnvw.artemis.io.IOAnimals;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -54,8 +58,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns the main search window controller. this can be used to acces the
-     * fields and atributes of the search window.
+     * Returns the main search window controller. this can be used to access the
+     * fields and attributes of the search window.
      *
      * @return mainSearchWidowController
      */
@@ -81,11 +85,14 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         setMainStage(stage);
-
         loadMainWindow();
 
-        Cat cat = new Cat("CAT");
 
+        new IOContext(new IOUsers()).save(new Administrator("user", "pass", "Dave", "Britt", null, "Male", "djmbritt@gmail.com", "0641566887", "PerikWeg", "5", "b", "1025DJ", null));
+        
+        new IOContext(new IOUsers()).load().forEach((animal) -> {
+            System.out.println(animal);
+        });
     }
 
     /**
@@ -98,6 +105,7 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
 
     /**
@@ -127,7 +135,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Restart the stage and the root, load the mainwindow to return to the login page.
+     * Restart the stage and the root, load the mainwindow to return to the
+     * login page.
      */
     public static void loadMainWindow() {
         try {

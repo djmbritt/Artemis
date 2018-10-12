@@ -123,7 +123,7 @@ public class RegistrationPageController implements Initializable {
         Boolean allFieldsFilledIn = valueFields
                 .getChildren()
                 .filtered(node -> node instanceof TextField)
-                .filtered(node -> ((TextField) node).getText().equals(""))
+                .filtered(node -> ((TextField) node).getText().isEmpty())
                 .isEmpty();
         
         
@@ -132,6 +132,8 @@ public class RegistrationPageController implements Initializable {
         } else {
             //TODO create new user here. 
             //TODO edit account factory class in order to pass values to account being instantiated.
+            
+            
         }
 
     }

@@ -1,6 +1,6 @@
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
+import javafx.scene.image.Image;
 import java.util.Date;
 
 /**
@@ -19,9 +19,9 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
     private Date dateOfBirth;
     private String sex;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String addres;
-    private int houseNumber;
+    private String houseNumber;
     private String addition;
     private String postalCode;
     private Image profilePicture;
@@ -31,7 +31,10 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         super(null);
     }
 
-    public UserInformation(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
+    public UserInformation(String password, String userName, String firstName, 
+            String lastName, Date dateOfBirth, String sex, String email, 
+            String phoneNumber, String addres, String houseNumber, String addition,
+            String postalCode, Image profilePicture) {
         super(password);
         this.userName = userName;
         this.firstName = firstName;
@@ -96,11 +99,11 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -112,11 +115,11 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         this.addres = addres;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 

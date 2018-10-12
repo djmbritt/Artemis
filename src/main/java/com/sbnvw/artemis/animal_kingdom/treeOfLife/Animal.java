@@ -2,7 +2,8 @@ package com.sbnvw.artemis.animal_kingdom.treeOfLife;
 
 import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
 import com.sbnvw.artemis.animal_kingdom.traits.fur.Fur;
-import com.sbnvw.artemis.io.IOWriter;
+import com.sbnvw.artemis.io.IOAnimals;
+import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.Serializable;
 
@@ -104,8 +105,7 @@ public abstract class Animal implements Serializable {
     }
 
     private void saveAnimal() {
-
-        IOWriter.saveAnimal(this);
+        new IOContext(new IOAnimals()).save(this);
 
     }
     
