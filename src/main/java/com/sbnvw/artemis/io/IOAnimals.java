@@ -25,8 +25,8 @@ public class IOAnimals implements IOStrategy<Animal> {
 
     @Override
     public void saveData(Animal o) {
-        ArrayList<Animal> animals = new ArrayList<>();
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ANIMALFILELOCATION));) {
+        ArrayList<Animal> animals = loadData();
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ANIMALFILELOCATION))) {
 
             animals.add(o);
             oos.writeObject(animals);

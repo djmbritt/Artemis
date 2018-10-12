@@ -21,8 +21,8 @@ public class IOUsers implements IOStrategy<UserInformation> {
 
     @Override
     public void saveData(UserInformation o) {
-        ArrayList<UserLogin> users = new ArrayList<>();
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USERFILELOCATION));) {
+        ArrayList<UserInformation> users = loadData();
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(USERFILELOCATION))) {
             users.add(o);
             oos.writeObject(users);
             oos.close();
