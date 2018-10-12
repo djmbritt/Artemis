@@ -5,20 +5,21 @@
  */
 package com.sbnvw.artemis.account;
 
+import java.io.Serializable;
+
 /**
  *
  * @author djmbritt
  */
-public abstract class UserLogin {
+public abstract class UserLogin implements Serializable {
 
-    private static Integer userID;
+    private static Integer userID = 001;
     private String password;
 
     public UserLogin(String password) {
         System.out.println("AbstractClass AccountLogin Creation: UserID: " + userID);
         this.password = password;
-        this.userID = userID;
-        userID++;
+        userID = userID++;
     }
 
     public int getUserID() {

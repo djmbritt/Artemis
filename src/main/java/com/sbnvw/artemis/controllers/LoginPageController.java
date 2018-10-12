@@ -1,6 +1,7 @@
 package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
+import com.sbnvw.artemis.account.AccountFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -36,6 +37,8 @@ public class LoginPageController implements Initializable {
     private Button forgotID;
     @FXML
     private Button registrationID;
+    @FXML
+    private Button guestLoginBtn;
 
     /**
      * Initializes the controller class.
@@ -119,14 +122,24 @@ public class LoginPageController implements Initializable {
 
         if (userName.equals(adminName) && passWord.equals(adminPass)) {
             System.out.println("LOGIN!!");
-            MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
-            MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+
         } else {
             System.out.println("LOGIN FAILED");
             Alert failedLoginAlert = new Alert(Alert.AlertType.ERROR, "Login failed. Please try again.");
             failedLoginAlert.showAndWait();
         }
 
+    }
+
+    @FXML
+    private void btnGuestLogin(ActionEvent event) {
+        
+        AccountFactory.createAccount("guest");
+        
+        MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+        MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+            
+            
     }
 
 }

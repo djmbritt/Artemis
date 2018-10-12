@@ -4,9 +4,12 @@ package com.sbnvw.artemis.account;
  *
  * @author djmbritt
  */
-public class SystemAdministrator extends UserInformation implements GetAccount {
+public class SystemAdministrator extends UserInformation {
 
-//    Public static final method
+    /**
+     * Use singleton design pattern to allow the creation of only one instance of the systemAdministrator class.
+     * Using the public static final method
+     */
     public static final SystemAdministrator INSTANCE = new SystemAdministrator();
     
 /*    Lazy initialization method
@@ -45,15 +48,6 @@ public class SystemAdministrator extends UserInformation implements GetAccount {
 
     @Override
     public void deleteUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @return Current GetAccount Type
-     */
-    @Override
-    public String getAccountType() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
