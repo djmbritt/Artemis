@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,13 +20,14 @@ import java.util.logging.Logger;
  *
  * @author djmbritt
  */
-public class IOAnimals implements IOStrategy<Animal> {
+public class IOAnimals implements IOStrategy<Animal>, Serializable {
 
     private static final String ANIMALFILELOCATION = "animals.dat";
+    private ArrayList<Animal> animals = loadData();
 
     @Override
     public void saveData(Animal o) {
-        ArrayList<Animal> animals = loadData();
+        animals = loadData();
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ANIMALFILELOCATION))) {
 
             animals.add(o);
@@ -39,7 +41,6 @@ public class IOAnimals implements IOStrategy<Animal> {
 
     @Override
     public ArrayList<Animal> loadData() {
-        ArrayList<Animal> animals = new ArrayList<>();
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ANIMALFILELOCATION))) {
             animals.addAll((ArrayList<Animal>) ois.readObject());
@@ -50,4 +51,8 @@ public class IOAnimals implements IOStrategy<Animal> {
         return animals;
     }
 
+    @Override
+    public int size(){
+        return animals.size();
+    }
 }

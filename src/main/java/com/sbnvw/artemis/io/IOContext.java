@@ -37,4 +37,12 @@ public class IOContext <T>{
         return iOStrategy.loadData();
     }
     
+    /**
+     * Return the size of the arrayList.
+     * @return int representing the size of the arrayList.
+     */
+    public int size(){
+        return iOStrategy.size();
+    }
+    
 }

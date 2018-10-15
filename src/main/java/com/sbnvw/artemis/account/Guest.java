@@ -12,7 +12,7 @@ package com.sbnvw.artemis.account;
 public class Guest extends UserLogin implements ArticleManagement {
 
     public Guest() {
-        super("guest_password");
+        super("guest_password", "Guest");
     }
 
     /**

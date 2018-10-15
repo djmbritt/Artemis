@@ -1,5 +1,7 @@
 package com.sbnvw.artemis.account;
 
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
 import javafx.scene.image.Image;
 import java.util.Date;
 
@@ -11,7 +13,7 @@ import java.util.Date;
 //	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 //	Date date = new Date();
 //	System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
-public abstract class UserInformation extends UserLogin implements UserManagement {
+public abstract class UserInformation extends UserLogin {
 
     private String userName;
     private String firstName;
@@ -24,18 +26,19 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
     private String houseNumber;
     private String addition;
     private String postalCode;
+    private String country;
     private Image profilePicture;
     private Date dateAccountCreation;
 
     public UserInformation() {
-        super(null);
+        super(null, null);
     }
 
-    public UserInformation(String password, String userName, String firstName, 
-            String lastName, Date dateOfBirth, String sex, String email, 
+    public UserInformation(String password, String accountType, String userName, String firstName,
+            String lastName, Date dateOfBirth, String sex, String email,
             String phoneNumber, String addres, String houseNumber, String addition,
-            String postalCode, Image profilePicture) {
-        super(password);
+            String postalCode, String country, Image profilePicture) {
+        super(password, accountType);
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,9 +50,12 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         this.houseNumber = houseNumber;
         this.addition = addition;
         this.postalCode = postalCode;
+        this.country = country;
         this.profilePicture = profilePicture;
-        this.dateAccountCreation = new Date();
+        this.dateAccountCreation = new Date(System.currentTimeMillis());
+//        saveUser();
     }
+
 
     public String getUserName() {
         return userName;
@@ -139,6 +145,14 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
         this.postalCode = postalCode;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public Image getProfilePicture() {
         return profilePicture;
     }
@@ -153,6 +167,14 @@ public abstract class UserInformation extends UserLogin implements UserManagemen
 
     public void setDateAccountCreation(Date dateAccountCreation) {
         this.dateAccountCreation = dateAccountCreation;
+    }
+
+    /**
+     * Potentially use for the saving of new users right away.
+     */
+    private void saveUser() {
+        new IOContext(new IOUsers()).save(this);
+
     }
 
 }
