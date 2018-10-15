@@ -1,14 +1,26 @@
 package com.sbnvw.artemis;
 
+import com.sbnvw.artemis.account.Administrator;
+import com.sbnvw.artemis.account.SystemAdministrator;
+import com.sbnvw.artemis.account.User;
+import com.sbnvw.artemis.account.UserInformation;
+import com.sbnvw.artemis.account.UserLogin;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
+import com.sbnvw.artemis.io.IOAnimals;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -19,8 +31,17 @@ import javafx.stage.Stage;
  */
 public class MainApp extends Application {
 
+    private static Stage mainStage;
     private static MainWindowController mainWindowController;
     private static MainSearchWindowController mainSearchWindowController;
+
+    public static Stage getMainStage() {
+        return mainStage;
+    }
+
+    public static void setMainStage(Stage setStage) {
+        mainStage = setStage;
+    }
 
     /**
      * Returns the main window controller. this can be used to set and get
@@ -43,8 +64,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns the main search window controller. this can be used to acces the
-     * fields and atributes of the search window.
+     * Returns the main search window controller. this can be used to access the
+     * fields and attributes of the search window.
      *
      * @return mainSearchWidowController
      */
@@ -68,45 +89,23 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        /**
-         * Loads the root window to be set as the first element of the scene.
-         * This should always be the mainWindow for the program.
-         */
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/mainWindow.fxml"));
 
-        /**
-         * Fetches the primary screen of the user. It will then get the bounds
-         * and sets them to the bounds variable. this results in the program
-         * always starting up at the correct size of the screen
-         */
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
+        setMainStage(stage);
+        loadMainWindow();
         
-        /**
-         * Sets the scene with the root as the startup window. the root should
-         * be the mainWindow loaded by the FXML loader at the top of the method.
-         */
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Styles.css");
+        
 
-        /*
-        * Sets the stage to the size of the users screen
-        */
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
+        IOContext iousers =  new IOContext(new IOUsers());
+        Boolean containsSysAdmin = iousers.load().contains(SystemAdministrator.getInstance());
+        if (!containsSysAdmin) {
+            System.out.println("Creating sysadmin, should be at index = 0.");
+            iousers.save(SystemAdministrator.getInstance());
+        }
+        
+        iousers.load().forEach((t) -> {
+            System.out.println(t);
+        });
 
-        /*
-        * Loads the stage and sets the stage title.
-        */
-        stage.setTitle("Artemis");
-        stage.setScene(scene);
-        stage.show();
-        
-        
-        Cat cat = new Cat("CAT");
-        
     }
 
     /**
@@ -119,6 +118,7 @@ public class MainApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
 
     /**
@@ -147,4 +147,34 @@ public class MainApp extends Application {
 
     }
 
+    /**
+     * Restart the stage and the root, load the mainwindow to return to the
+     * login page.
+     */
+    public static void loadMainWindow() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/mainWindow.fxml"));
+            Parent root = fxmlLoader.load();
+            Screen screen = Screen.getPrimary();
+            Rectangle2D bounds = screen.getVisualBounds();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+
+            Stage stage = getMainStage();
+
+            stage.setX(bounds.getMinX());
+            stage.setY(bounds.getMinY());
+            stage.setWidth(bounds.getWidth());
+            stage.setHeight(bounds.getHeight());
+
+            stage.getIcons().add(new Image("/img/index.png"));
+            stage.setTitle("Artemis");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Exception:: " + e);
+        }
+
+    }
 }

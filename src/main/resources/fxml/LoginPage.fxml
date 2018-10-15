@@ -5,15 +5,15 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
 
-<VBox fx:id="loginPage" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.LoginPageController">
+<VBox fx:id="loginFields" alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.LoginPageController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User name" />
-      <TextField fx:id="userNameField" minHeight="25.0" minWidth="200.0" onKeyReleased="#userLogin" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
-      <PasswordField fx:id="passwordField" minHeight="25.0" minWidth="200.0" onKeyReleased="#passLogin" />
-      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#btnLogin" text="Login" />
+      <TextField fx:id="userNameField" minHeight="25.0" minWidth="200.0" onKeyReleased="#userKeyLogin" promptText="Username / Email" />
+      <PasswordField fx:id="passwordField" minHeight="25.0" minWidth="200.0" onKeyReleased="#passLogin" promptText="Password" />
+      <Button fx:id="loginID" mnemonicParsing="false" onAction="#btnLogin" prefHeight="26.0" prefWidth="124.0" text="Login" />
+      <Button fx:id="guestLoginID" mnemonicParsing="false" onAction="#btnGuestLogin" prefHeight="26.0" prefWidth="125.0" text="Guest Login" />
+      <Button fx:id="forgotID" mnemonicParsing="false" onAction="#btnForgot" prefHeight="26.0" prefWidth="125.0" text="Forgot Login" />
+      <Button fx:id="registrationID" mnemonicParsing="false" onAction="#btnRegister" prefHeight="26.0" prefWidth="125.0" text="Register" />
    </children>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

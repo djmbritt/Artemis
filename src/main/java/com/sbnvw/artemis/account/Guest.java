@@ -9,16 +9,15 @@ package com.sbnvw.artemis.account;
  *
  * @author djmbritt
  */
-public class Guest extends UserLogin implements ArticleManagement, GetAccount {
+public class Guest extends UserLogin implements ArticleManagement {
 
     public Guest() {
-        super(null);
+        super("guest_password", "Guest");
     }
-    
+
     /**
      * Article Management
      */
-
     @Override
     public void createArticle() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -44,14 +43,5 @@ public class Guest extends UserLogin implements ArticleManagement, GetAccount {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    /**
-     * 
-     * @return Current GetAccount Type
-     */
-
-    @Override
-    public String getAccountType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

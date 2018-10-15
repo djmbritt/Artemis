@@ -3,13 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sbnvw.artemis.account;
+package com.sbnvw.artemis.io;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author djmbritt
  */
-public interface GetAccount {
+public interface IOStrategy <T>{
 
-    public String getAccountType();
+    public void saveData(T o);
+    public ArrayList<T> loadData();
+    public int size();
 }

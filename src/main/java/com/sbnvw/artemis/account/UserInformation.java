@@ -1,6 +1,8 @@
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
+import javafx.scene.image.Image;
 import java.util.Date;
 
 /**
@@ -19,20 +21,24 @@ public abstract class UserInformation extends UserLogin {
     private Date dateOfBirth;
     private String sex;
     private String email;
-    private int phoneNumber;
+    private String phoneNumber;
     private String addres;
-    private int houseNumber;
+    private String houseNumber;
     private String addition;
     private String postalCode;
+    private String country;
     private Image profilePicture;
     private Date dateAccountCreation;
 
     public UserInformation() {
-        super(null);
+        super(null, null);
     }
 
-    public UserInformation(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
-        super(password);
+    public UserInformation(String password, String accountType, String userName, String firstName,
+            String lastName, Date dateOfBirth, String sex, String email,
+            String phoneNumber, String addres, String houseNumber, String addition,
+            String postalCode, String country, Image profilePicture) {
+        super(password, accountType);
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,9 +50,12 @@ public abstract class UserInformation extends UserLogin {
         this.houseNumber = houseNumber;
         this.addition = addition;
         this.postalCode = postalCode;
+        this.country = country;
         this.profilePicture = profilePicture;
-        this.dateAccountCreation = new Date();
+        this.dateAccountCreation = new Date(System.currentTimeMillis());
+//        saveUser();
     }
+
 
     public String getUserName() {
         return userName;
@@ -96,11 +105,11 @@ public abstract class UserInformation extends UserLogin {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -112,11 +121,11 @@ public abstract class UserInformation extends UserLogin {
         this.addres = addres;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(int houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
     }
 
@@ -136,6 +145,14 @@ public abstract class UserInformation extends UserLogin {
         this.postalCode = postalCode;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public Image getProfilePicture() {
         return profilePicture;
     }
@@ -150,6 +167,14 @@ public abstract class UserInformation extends UserLogin {
 
     public void setDateAccountCreation(Date dateAccountCreation) {
         this.dateAccountCreation = dateAccountCreation;
+    }
+
+    /**
+     * Potentially use for the saving of new users right away.
+     */
+    private void saveUser() {
+        new IOContext(new IOUsers()).save(this);
+
     }
 
 }

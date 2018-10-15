@@ -5,7 +5,7 @@
  */
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
+import javafx.scene.image.Image;
 import java.util.Date;
 
 /**
@@ -14,13 +14,17 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class Administrator extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
+public class Administrator extends UserInformation implements ArticleManagement, UserManagement {
 
     public Administrator() {
     }
 
-    public Administrator(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
+    public Administrator(String password, String userName, String firstName, 
+            String lastName, Date dateOfBirth, String sex, String email, 
+            String phoneNumber, String addres, String houseNumber, String addition, 
+            String postalCode, String country, Image profilePicture) {
+        super(password, "Administrator", userName, firstName, lastName, dateOfBirth, sex, email, 
+                phoneNumber, addres, houseNumber, addition, postalCode, country, profilePicture);
     }
 
     @Override
@@ -68,13 +72,5 @@ public class Administrator extends UserInformation implements UserManagement, Ar
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /**
-     * 
-     * @return Current GetAccount Type
-     */
-    @Override
-    public String getAccountType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

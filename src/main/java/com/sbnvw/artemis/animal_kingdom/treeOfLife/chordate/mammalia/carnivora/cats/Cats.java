@@ -1,6 +1,5 @@
 package com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats;
 
-import com.sbnvw.artemis.animal_kingdom.traits.diet.Diet;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora;
 
 /**
@@ -10,7 +9,7 @@ import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.C
 public abstract class Cats extends Carnivora {
 
     private static int cats;
-    private int catsID;
+    private final int catsID;
 
     public Cats(String name) {
         super(name);
@@ -18,13 +17,12 @@ public abstract class Cats extends Carnivora {
         cats++;
     }
 
-    public int getCatID() {
+    public int getCatsID() {
         return catsID;
     }
 
-    public static int getCats() {
+    public static int getNrOfCatTypes() {
         return cats;
     }
-
 
 }

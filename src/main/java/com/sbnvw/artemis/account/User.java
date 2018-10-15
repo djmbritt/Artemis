@@ -5,44 +5,26 @@
  */
 package com.sbnvw.artemis.account;
 
-import java.awt.Image;
+import javafx.scene.image.Image;
 import java.util.Date;
 
 /**
  *
  * @author djmbritt
  */
-public class User extends UserInformation implements UserManagement, ArticleManagement, GetAccount {
+public class User extends UserInformation implements ArticleManagement {
 
     public User() {
     }
 
-    public User(String password, String userName, String firstName, String lastName, Date dateOfBirth, String sex, String email, int phoneNumber, String addres, int houseNumber, String addition, String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
+    public User(String password, String userName, String firstName, 
+            String lastName, Date dateOfBirth, String sex, String email, 
+            String phoneNumber, String addres, String houseNumber, String addition, 
+            String postalCode, String country, Image profilePicture) {
+        super(password, "User", userName, firstName, lastName, dateOfBirth, sex, email, 
+                phoneNumber, addres, houseNumber, addition, postalCode, country, profilePicture);
     }
 
-    /**
-     * User Management
-     */
-    @Override
-    public void createUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void readUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void updateUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * Article Management
@@ -72,14 +54,5 @@ public class User extends UserInformation implements UserManagement, ArticleMana
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    /**
-     * 
-     * @return Current GetAccount Type
-     */
-
-    @Override
-    public String getAccountType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

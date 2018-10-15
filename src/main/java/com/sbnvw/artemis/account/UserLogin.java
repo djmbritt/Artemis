@@ -5,32 +5,45 @@
  */
 package com.sbnvw.artemis.account;
 
+import com.sbnvw.artemis.io.IOContext;
+import com.sbnvw.artemis.io.IOUsers;
+import java.io.Serializable;
+
 /**
  *
  * @author djmbritt
  */
-public abstract class UserLogin {
+public abstract class UserLogin implements Serializable {
 
-    private static Integer userID;
+    private static int userID = new IOContext(new IOUsers()).size();
     private String password;
+    private String accountType;
 
-    public UserLogin(String password) {
+    public UserLogin(String password, String accountType) {
         System.out.println("AbstractClass AccountLogin Creation: UserID: " + userID);
         this.password = password;
-        this.userID = userID;
-        userID++;
+        this.accountType = accountType;
+        userID = ++userID;
     }
 
     public int getUserID() {
         return this.userID;
     }
 
-    public String getUserPassword() {
-        return this.password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setuserPassword(String password) {
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String acccountType) {
+        this.accountType = acccountType;
     }
 
 }
