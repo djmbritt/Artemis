@@ -48,4 +48,8 @@ public class AnimalManager {
 
     }
 
+    public static ArrayList<Animal> getAnimals() {
+        return animals;
+    }
+
 }

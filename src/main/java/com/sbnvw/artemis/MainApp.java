@@ -1,10 +1,13 @@
 package com.sbnvw.artemis;
 
 import com.sbnvw.artemis.account.Administrator;
-import com.sbnvw.artemis.account.SystemAdministrator;
+import com.sbnvw.artemis.animal_kingdom.traits.Trait;
+import com.sbnvw.artemis.animal_kingdom.traits.TraitBehaviour;
+import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Classification;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Kingdom;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
-import com.sbnvw.artemis.io.IOAnimals;
 import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
@@ -87,9 +90,8 @@ public class MainApp extends Application {
         setMainStage(stage);
         loadMainWindow();
 
-
         new IOContext(new IOUsers()).save(new Administrator("user", "pass", "Dave", "Britt", null, "Male", "djmbritt@gmail.com", "0641566887", "PerikWeg", "5", "b", "1025DJ", null));
-        
+
         new IOContext(new IOUsers()).load().forEach((animal) -> {
             System.out.println(animal);
         });
