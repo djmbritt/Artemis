@@ -27,8 +27,9 @@ public class SystemAdministrator extends UserInformation {
     private SystemAdministrator() {
 
         super(
-                "sysadmin",                             //User
                  "sysadminpass",                        //password
+                "SystemAdministrator",                  //accounttype
+                "sysadmin",                             //User
                  "System",                              //FirstName
                  "Administrator",                       //LastName
                  new Date(System.currentTimeMillis()),  //DateDateAccount
@@ -39,10 +40,11 @@ public class SystemAdministrator extends UserInformation {
                  "3",                                   //HouseNumber
                  "b",                                   //Addition
                  "1091 GH",                             //PostalCode
+                 "Nederland",                           //Country
                  null                                   //ProfileImage
         );
-        
-        new IOContext(new IOUsers()).save(this.INSTANCE);
+
+//        saveSysAdmin();
 
     }
 
@@ -53,30 +55,7 @@ public class SystemAdministrator extends UserInformation {
     public static SystemAdministrator getInstance() {
         return INSTANCE;
     }
-
-    /**
-     * User Management
-     */
-    @Override
-    public void createUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void readUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void updateUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     
     /**
      * 
@@ -85,16 +64,22 @@ public class SystemAdministrator extends UserInformation {
     @Override
     public String toString() {
 
-        return String.format("\n%s\n%s %s\n%s\n%s\n%s\n%s %s%s\n%s\n%s\n%s",
+        return String.format("\n%s\n%s %s\n%s\n%s\n%s\n%s\n%s %s%s\n%s\n%s\n%s",
                 super.toString(),
                 "Name:\t\t " + getFirstName(), getLastName(),
+                "Accounttype:\t " + getAccountType(),
                 "UserID:\t\t " + getUserID(),
                 "UserName:\t " + getUserName(),
-                "Password:\t " + getUserPassword(),
+                "Password:\t " + getPassword(),
                 "Address:\t " + getAddres(), getHouseNumber(), getAddition(),
                 "PostalCode:\t " + getPostalCode(),
                 "Email:\t\t " + getEmail(),
                 "PhoneNumber:\t " + getPhoneNumber());
+    }
+    
+    private void saveSysAdmin(){
+        new IOContext(new IOUsers()).save(this);
+
     }
 
 }

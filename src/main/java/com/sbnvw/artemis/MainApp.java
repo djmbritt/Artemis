@@ -2,12 +2,18 @@ package com.sbnvw.artemis;
 
 import com.sbnvw.artemis.account.Administrator;
 import com.sbnvw.artemis.account.SystemAdministrator;
+import com.sbnvw.artemis.account.User;
+import com.sbnvw.artemis.account.UserInformation;
+import com.sbnvw.artemis.account.UserLogin;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
 import com.sbnvw.artemis.io.IOAnimals;
 import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -86,13 +92,20 @@ public class MainApp extends Application {
 
         setMainStage(stage);
         loadMainWindow();
-
-
-        new IOContext(new IOUsers()).save(new Administrator("user", "pass", "Dave", "Britt", null, "Male", "djmbritt@gmail.com", "0641566887", "PerikWeg", "5", "b", "1025DJ", null));
         
-        new IOContext(new IOUsers()).load().forEach((animal) -> {
-            System.out.println(animal);
+        
+
+        IOContext iousers =  new IOContext(new IOUsers());
+        Boolean containsSysAdmin = iousers.load().contains(SystemAdministrator.getInstance());
+        if (!containsSysAdmin) {
+            System.out.println("Creating sysadmin, should be at index = 0.");
+            iousers.save(SystemAdministrator.getInstance());
+        }
+        
+        iousers.load().forEach((t) -> {
+            System.out.println(t);
         });
+
     }
 
     /**

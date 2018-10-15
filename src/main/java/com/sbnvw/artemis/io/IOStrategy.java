@@ -15,4 +15,5 @@ public interface IOStrategy <T>{
 
     public void saveData(T o);
     public ArrayList<T> loadData();
+    public int size();
 }
