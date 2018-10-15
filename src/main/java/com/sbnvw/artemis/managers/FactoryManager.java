@@ -12,6 +12,7 @@ public class FactoryManager implements Observable {
     private static List<Observer> observers = new ArrayList<>();
 
     public FactoryManager() {
+        
     }
 
     @Override

@@ -18,7 +18,6 @@ public class TraitGroup extends Trait {
         TraitsManager.addTraitGroup(this);
     }
 
-    @Override
     public void addTraitBehaviour(TraitBehaviour t) {
         traitBehaviours.add(t);
     }
@@ -27,5 +26,11 @@ public class TraitGroup extends Trait {
     public String getName() {
         return this.groupName;
     }
+
+    public List<TraitBehaviour> getTraitBehaviours() {
+        return traitBehaviours;
+    }
+    
+    
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Marcel van Wilgenburg
  */
-public interface Factory extends Observer{
+public interface Factory extends Observer {
 
     @Override
     void update();

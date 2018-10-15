@@ -20,17 +20,17 @@ import java.util.logging.Logger;
  *
  * @author Marcel van Wilgenburg
  */
-public final class ClassificationFactory implements Factory, Observer {
-    
+public final class ClassificationFactory implements Factory{
+
     private static List<Classification> classList = ClassificationManager.getClassifications();
-    
+
     public ClassificationFactory() {
         FactoryManager f = new FactoryManager();
         f.attach(this);
     }
-    
+
     public static void makeClassification(String name, Object parant, String type) throws ClassNotFoundException, IllegalArgumentException {
-        
+
         switch (type) {
             case "Kingdom":
                 if (!alreadyExists(name, Kingdom.class)) {
@@ -48,7 +48,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             case "Class":
                 if (!alreadyExists(name, ClassType.class)) {
                     ClassificationManager.addClasification(new ClassType(name, (Phylum) parant));
@@ -57,7 +57,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             case "Order":
                 if (!alreadyExists(name, Order.class)) {
                     ClassificationManager.addClasification(new Order(name, (ClassType) parant));
@@ -66,7 +66,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             case "Family":
                 if (!alreadyExists(name, Family.class)) {
                     ClassificationManager.addClasification(new Order(name, (ClassType) parant));
@@ -75,7 +75,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             case "Genus":
                 if (!alreadyExists(name, Genus.class)) {
                     ClassificationManager.addClasification(new Genus(name, (Family) parant));
@@ -84,7 +84,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             case "Species":
                 if (!alreadyExists(name, Species.class)) {
                     ClassificationManager.addClasification(new Species(name, (Genus) parant));
@@ -93,17 +93,17 @@ public final class ClassificationFactory implements Factory, Observer {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
-            
+
             default:
                 throw new ClassNotFoundException("Class:" + name + " does not exisit");
         }
-        
+
     }
-    
+
     public static boolean alreadyExists(String name, Class c) {
         try {
             Object object = c.newInstance();
-            
+
             for (int i = 0; i < classList.size(); i++) {
                 if (classList.get(i).getClass().equals(object)) {
                     if (classList.get(i).getName().equalsIgnoreCase(name)) {
@@ -111,7 +111,7 @@ public final class ClassificationFactory implements Factory, Observer {
                     }
                 }
             }
-            
+
         } catch (InstantiationException ex) {
             Logger.getLogger(ClassificationFactory.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
@@ -119,10 +119,10 @@ public final class ClassificationFactory implements Factory, Observer {
         }
         return false;
     }
-    
+
     @Override
     public void update() {
         classList = ClassificationManager.getClassifications();
     }
-    
+
 }

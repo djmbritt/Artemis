@@ -11,7 +11,8 @@ import java.util.List;
  *
  * @author Marcel van Wilgenburg
  */
-public class AnimalFactory implements Factory{
+public class AnimalFactory implements Factory {
+
     private static AnimalFactory animalFactory = null;
     private static final List<Animal> ANIMALS = AnimalManager.getAnimals();
 
@@ -29,7 +30,7 @@ public class AnimalFactory implements Factory{
     }
 
     public static void makeAnimal(String name, Species species) {
-        ANIMALS.add(new Animal(name, species));
+        AnimalManager.addAnimalToList(new Animal(name, species));
     }
 
     @Override
