@@ -20,33 +20,11 @@ public class User extends UserInformation implements ArticleManagement {
     public User(String password, String userName, String firstName, 
             String lastName, Date dateOfBirth, String sex, String email, 
             String phoneNumber, String addres, String houseNumber, String addition, 
-            String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, 
-                phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
+            String postalCode, String country, Image profilePicture) {
+        super(password, "User", userName, firstName, lastName, dateOfBirth, sex, email, 
+                phoneNumber, addres, houseNumber, addition, postalCode, country, profilePicture);
     }
 
-    /**
-     * User Management
-     */
-    @Override
-    public void createUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void readUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void updateUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deleteUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     /**
      * Article Management

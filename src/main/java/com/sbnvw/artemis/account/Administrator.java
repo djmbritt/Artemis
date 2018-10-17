@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author djmbritt
  */
-public class Administrator extends UserInformation implements ArticleManagement {
+public class Administrator extends UserInformation implements ArticleManagement, UserManagement {
 
     public Administrator() {
     }
@@ -22,9 +22,9 @@ public class Administrator extends UserInformation implements ArticleManagement 
     public Administrator(String password, String userName, String firstName, 
             String lastName, Date dateOfBirth, String sex, String email, 
             String phoneNumber, String addres, String houseNumber, String addition, 
-            String postalCode, Image profilePicture) {
-        super(password, userName, firstName, lastName, dateOfBirth, sex, email, 
-                phoneNumber, addres, houseNumber, addition, postalCode, profilePicture);
+            String postalCode, String country, Image profilePicture) {
+        super(password, "Administrator", userName, firstName, lastName, dateOfBirth, sex, email, 
+                phoneNumber, addres, houseNumber, addition, postalCode, country, profilePicture);
     }
 
     @Override
