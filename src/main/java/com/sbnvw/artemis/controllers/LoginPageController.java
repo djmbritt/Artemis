@@ -123,52 +123,62 @@ public class LoginPageController implements Initializable {
     }
 
     private void login() {
-
-        ObservableList<UserInformation> userList = FXCollections.observableArrayList();
-        userList.addAll(new IOContext(new IOUsers()).load());
-
-        Boolean areFieldsFilledIn = loginFields.getChildren().filtered(node -> node instanceof TextField).filtered(node -> ((TextField) node).getText().isEmpty()).isEmpty();
-        Boolean checkLogin = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserInformation) user).getPassword()));
-        Boolean userExist = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()));
         
-       UserInformation checkedUser =  userList.filtered(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserInformation) user).getPassword())).get(0);
-       
-       new Alert(Alert.AlertType.INFORMATION, checkedUser.toString()).showAndWait();
-
-        if (!areFieldsFilledIn) {
-            new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").showAndWait();
-        } else if (!userExist) {
-            new Alert(Alert.AlertType.ERROR, "User does not exist, please try another one.").showAndWait();
-        } else if (!checkLogin) {
-            new Alert(Alert.AlertType.ERROR, "Username and or password do not match. Please try again.").showAndWait();
-        } else {
-
-            UserLogin loginInformation = userList.filtered((user) -> {
-                return userNameField.getText().equals(((UserInformation) user).getEmail());
-            }).get(0);
-
-            System.out.println("loginInformation::size: " + userList.size());
-            System.out.println("loginInformation::accounttype: " + loginInformation.toString());
-
-            System.out.println("Username and password check out, running last check for accounttype.");
-            if (loginInformation.getAccountType().equalsIgnoreCase("user")) {
-                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
-                MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
-            } else
-
-            if (loginInformation.getAccountType().equalsIgnoreCase("Administrator")) {
-                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
-                MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
-            } else
-
-            if (loginInformation.getAccountType().equalsIgnoreCase("SystemAdministrator")) {
-                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
-                MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Something went wrong.").showAndWait();
-            }
-
+        if (true) {
+            MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+            MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         }
+        
+        
+        //THE CODE THAT IS COMMENTED DOES NOT WORK AS IT SHOULD AT THIS POINT.
+        //DAVID SHOULD HAVE A LOOK AT THIS BEFORE WE SUBMIT IT. FOR NOW WE JUST
+        //LOG IN TO THE MAIN PAGE.
+//
+//        ObservableList<UserLogin> userList = FXCollections.observableArrayList();
+//        userList.addAll(new IOContext(new IOUsers()).load());
+//
+//        Boolean areFieldsFilledIn = loginFields.getChildren().filtered(node -> node instanceof TextField).filtered(node -> ((TextField) node).getText().isEmpty()).isEmpty();
+//        Boolean checkLogin = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserLogin) user).getPassword()));
+//        Boolean userExist = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()));
+//        
+//       UserInformation checkedUser =  (UserInformation) userList.filtered(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserLogin) user).getPassword())).get(0);
+//       
+//       new Alert(Alert.AlertType.INFORMATION, checkedUser.toString()).showAndWait();
+//
+//        if (!areFieldsFilledIn) {
+//            new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").showAndWait();
+//        } else if (!userExist) {
+//            new Alert(Alert.AlertType.ERROR, "User does not exist, please try another one.").showAndWait();
+//        } else if (!checkLogin) {
+//            new Alert(Alert.AlertType.ERROR, "Username and or password do not match. Please try again.").showAndWait();
+//        } else {
+//
+//            UserLogin loginInformation = userList.filtered((user) -> {
+//                return userNameField.getText().equals(((UserInformation) user).getEmail());
+//            }).get(0);
+//
+//            System.out.println("loginInformation::size: " + userList.size());
+//            System.out.println("loginInformation::accounttype: " + loginInformation.toString());
+//
+//            System.out.println("Username and password check out, running last check for accounttype.");
+//            if (loginInformation.getAccountType().equalsIgnoreCase("user")) {
+//                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+//                MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
+//            } else
+//
+//            if (loginInformation.getAccountType().equalsIgnoreCase("Administrator")) {
+//                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+//                MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
+//            } else
+//
+//            if (loginInformation.getAccountType().equalsIgnoreCase("SystemAdministrator")) {
+//                MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
+//                MainApp.getMainWindowController().loadCenterPane("/fxml/UserList.fxml");
+//            } else {
+//                new Alert(Alert.AlertType.ERROR, "Something went wrong.").showAndWait();
+//            }
+//
+//        }
 
     }
 

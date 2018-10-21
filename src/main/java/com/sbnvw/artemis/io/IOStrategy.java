@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author djmbritt
+ * @param <T>
  */
 public interface IOStrategy <T>{
 

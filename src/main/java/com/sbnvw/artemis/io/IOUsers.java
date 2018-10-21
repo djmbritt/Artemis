@@ -1,5 +1,6 @@
 package com.sbnvw.artemis.io;
 
+import com.sbnvw.artemis.account.Guest;
 import com.sbnvw.artemis.account.UserInformation;
 import com.sbnvw.artemis.account.UserLogin;
 import java.io.FileInputStream;
@@ -55,5 +56,10 @@ public class IOUsers implements IOStrategy<UserInformation>, Serializable {
     public int size(){
         return users.size();
     }
+
+    public void saveData(Guest o) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }

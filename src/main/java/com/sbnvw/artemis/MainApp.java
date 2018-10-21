@@ -92,16 +92,14 @@ public class MainApp extends Application {
 
         setMainStage(stage);
         loadMainWindow();
-        
-        
 
-        IOContext iousers =  new IOContext(new IOUsers());
+        IOContext iousers = new IOContext(new IOUsers());
         Boolean containsSysAdmin = iousers.load().contains(SystemAdministrator.getInstance());
         if (!containsSysAdmin) {
             System.out.println("Creating sysadmin, should be at index = 0.");
             iousers.save(SystemAdministrator.getInstance());
         }
-        
+
         iousers.load().forEach((t) -> {
             System.out.println(t);
         });
@@ -175,6 +173,31 @@ public class MainApp extends Application {
         } catch (IOException e) {
             System.out.println("Exception:: " + e);
         }
+
+    }
+
+    public static Object loadFXMLFileInNewWindow(String fxmlFileName, String windowName) throws IOException {
+
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
+        Pane pane = fxmlLoader.load();
+
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        Scene scene = new Scene(pane);
+        scene.getStylesheets().add("/styles/Styles.css");
+
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
+
+        stage.setTitle(windowName);
+        stage.setScene(scene);
+        stage.show();
+
+        return fxmlLoader.getController();
 
     }
 }

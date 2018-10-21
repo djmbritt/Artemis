@@ -10,10 +10,9 @@ import java.util.ArrayList;
 public class AnimalManager {
 
     private static AnimalManager animalManager = null;
-    private static ArrayList<Animal> animals;
+    private static ArrayList<Animal> animals = new ArrayList<>();
 
     private AnimalManager() {
-        animals = new ArrayList<>();
     }
 
     private synchronized static void createInstance() {
@@ -46,6 +45,15 @@ public class AnimalManager {
 
         return animals.size();
 
+    }
+
+    public static ArrayList<Animal> getAnimals() {
+        return animals;
+    }
+    
+    public static void clearList(){
+        animals.clear();
+        
     }
 
 }

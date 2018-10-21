@@ -10,7 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: D5D1C6;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
+
+<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-image: img\GreenField.png;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
          <children>
@@ -49,16 +50,10 @@
    <center>
       <AnchorPane fx:id="centerAnchor" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="1018.0" fitWidth="1879.0" layoutX="700.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-186.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-279.0" AnchorPane.topAnchor="0.0">
-               <image>
-                  <Image url="@../img/GreenField.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+            <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" />
+         </children>
+      </AnchorPane>
    </center>
-   <right>
-      <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-   </right>
    <left>
       <AnchorPane fx:id="leftAnchor" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </left>
