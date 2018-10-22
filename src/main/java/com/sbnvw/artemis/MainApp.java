@@ -1,19 +1,11 @@
 package com.sbnvw.artemis;
 
-import com.sbnvw.artemis.account.Administrator;
 import com.sbnvw.artemis.account.SystemAdministrator;
-import com.sbnvw.artemis.account.User;
-import com.sbnvw.artemis.account.UserInformation;
-import com.sbnvw.artemis.account.UserLogin;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
-import com.sbnvw.artemis.io.IOAnimals;
 import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.io.IOUsers;
 import java.io.IOException;
-import java.util.ArrayList;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -89,6 +81,8 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
+        
+        Setup s = new Setup();
 
         setMainStage(stage);
         loadMainWindow();
@@ -182,16 +176,16 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
         Pane pane = fxmlLoader.load();
 
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
+//        Screen screen = Screen.getPrimary();
+//        Rectangle2D bounds = screen.getVisualBounds();
 
         Scene scene = new Scene(pane);
         scene.getStylesheets().add("/styles/Styles.css");
 
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
+//        stage.setX(bounds.getMinX());
+//        stage.setY(bounds.getMinY());
+//        stage.setWidth(bounds.getWidth());
+//        stage.setHeight(bounds.getHeight());
 
         stage.setTitle(windowName);
         stage.setScene(scene);

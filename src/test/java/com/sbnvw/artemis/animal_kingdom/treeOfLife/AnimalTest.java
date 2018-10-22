@@ -11,8 +11,13 @@ import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Order;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Phylum;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Species;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.AnimalFactory;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.ClassificationFactory;
 import com.sbnvw.artemis.managers.AnimalManager;
+import com.sbnvw.artemis.managers.ClassificationManager;
 import com.sbnvw.artemis.managers.TraitsManager;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,13 +31,14 @@ import static org.junit.Assert.*;
  */
 public class AnimalTest {
 
-    Kingdom Animal = new Kingdom("Animal");
-    Phylum Chordata = new Phylum("Chordata", Animal);
-    ClassType Mammalia = new ClassType("Mammalia", Chordata);
-    Order Carnivora = new Order("Carnivora", Mammalia);
-    Family Felidae = new Family("Felidae", Carnivora);
-    Genus felis = new Genus("Felis", Felidae);
-    Species cat = new Species("Cat", felis);
+    Kingdom Animal;
+    Phylum Chordata;
+    ClassType Mammalia;
+    Order Carnivora;
+    Family Felidae;
+    Genus felis;
+    Species cat;
+    Animal korthaar;
 
     public AnimalTest() {
     }
@@ -47,6 +53,20 @@ public class AnimalTest {
 
     @Before
     public void setUp() {
+
+        try {
+            Animal = (Kingdom) ClassificationFactory.makeClassification("Animal", null, "Kingdom");
+            Chordata = (Phylum) ClassificationFactory.makeClassification("Chordata", Animal, "Phylum");
+            Mammalia = (ClassType) ClassificationFactory.makeClassification("Mammalia", Chordata, "ClassType");
+            Carnivora = (Order) ClassificationFactory.makeClassification("Carnivora", Mammalia, "Order");
+            Felidae = (Family) ClassificationFactory.makeClassification("Felidae", Carnivora, "Family");
+            felis = (Genus) ClassificationFactory.makeClassification("Felis", Felidae, "Genus");
+            cat = (Species) ClassificationFactory.makeClassification("Cat", felis, "Species");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AnimalTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(AnimalTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -74,13 +94,15 @@ public class AnimalTest {
     }
 
     @Test
-    public void testGetTraitFromAnimal() {
-        AnimalFactory.makeAnimal("Korthaar", this.cat);
+    public void testGetTraitFromAnimal() throws ClassNotFoundException {
+        Animal c = AnimalFactory.makeAnimal("Korthaar", this.cat);
         TraitGroup diet = new TraitGroup("Diet");
         diet.addTraitBehaviour(new TraitBehaviour("Eats meat", diet));
-        this.Carnivora.addTrait(diet.getTraitBehaviours().get(0));
-        TraitBehaviour tb = (TraitBehaviour) AnimalManager.getAnimals().get(0).getTraits().get(0);
-        assertEquals("Eats meat", tb.getBehaviour());
+        ClassificationManager.getClassificationByName("Carnivora").addTrait(diet);
+        List<TraitGroup> l = c.getSpecies().getTraits();
+        TraitBehaviour tg = l.get(0).getTraitBehaviours().get(0);
+        String tb = tg.getBehaviour();
+        assertEquals("Eats meat", tb);
 
     }
 

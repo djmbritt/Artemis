@@ -11,8 +11,8 @@ import java.util.List;
  */
 public abstract class Classification {
 
-    private static String Name;
-    private static List<Trait> traits = new ArrayList();
+    private String Name;
+    protected List<Trait> traits = new ArrayList();
 
     public Classification(String Name) {
         this.Name = Name;

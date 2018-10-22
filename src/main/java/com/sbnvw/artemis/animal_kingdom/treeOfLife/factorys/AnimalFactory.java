@@ -29,8 +29,12 @@ public class AnimalFactory implements Factory {
         return animalFactory;
     }
 
-    public static void makeAnimal(String name, Species species) {
-        AnimalManager.addAnimalToList(new Animal(name, species));
+    public static Animal makeAnimal(String name, Species species, String desc) {
+        return AnimalManager.addAnimalToList(new Animal(name, species, desc));
+    }
+
+    public static Animal makeAnimal(String name, Species species) {
+        return AnimalManager.addAnimalToList(new Animal(name, species));
     }
 
     @Override

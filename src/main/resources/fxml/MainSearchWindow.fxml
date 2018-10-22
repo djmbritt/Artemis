@@ -50,7 +50,7 @@
                               <VBox prefHeight="695.0" prefWidth="571.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <TextField prefHeight="0.0" prefWidth="571.0" />
-                                    <ListView minHeight="487.0" prefHeight="674.0" prefWidth="571.0" />
+                                    <ListView fx:id="animals" minHeight="487.0" prefHeight="674.0" prefWidth="571.0" />
                                  </children>
                               </VBox>
                            </children>

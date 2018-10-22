@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Marcel van Wilgenburg
  */
-public final class ClassificationFactory implements Factory{
+public final class ClassificationFactory implements Factory {
 
     private static List<Classification> classList = ClassificationManager.getClassifications();
 
@@ -29,30 +29,29 @@ public final class ClassificationFactory implements Factory{
         f.attach(this);
     }
 
-    public static void makeClassification(String name, Object parant, String type) throws ClassNotFoundException, IllegalArgumentException {
+    public static Classification makeClassification(String name, Object parant, String type) throws ClassNotFoundException, IllegalArgumentException {
 
         switch (type) {
             case "Kingdom":
                 if (!alreadyExists(name, Kingdom.class)) {
-                    ClassificationManager.addClasification(new Kingdom(name));
-                    break;
+                    return ClassificationManager.addClasification(new Kingdom(name));
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
             case "Phylum":
                 if (!alreadyExists(name, Phylum.class)) {
-                    ClassificationManager.addClasification(new Phylum(name, (Kingdom) parant));
-                    break;
+                    return ClassificationManager.addClasification(new Phylum(name, (Kingdom) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
 
-            case "Class":
+            case "ClassType":
                 if (!alreadyExists(name, ClassType.class)) {
-                    ClassificationManager.addClasification(new ClassType(name, (Phylum) parant));
-                    break;
+                    return ClassificationManager.addClasification(new ClassType(name, (Phylum) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
@@ -60,8 +59,8 @@ public final class ClassificationFactory implements Factory{
 
             case "Order":
                 if (!alreadyExists(name, Order.class)) {
-                    ClassificationManager.addClasification(new Order(name, (ClassType) parant));
-                    break;
+                    return ClassificationManager.addClasification(new Order(name, (ClassType) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
@@ -69,8 +68,8 @@ public final class ClassificationFactory implements Factory{
 
             case "Family":
                 if (!alreadyExists(name, Family.class)) {
-                    ClassificationManager.addClasification(new Order(name, (ClassType) parant));
-                    break;
+                    return ClassificationManager.addClasification(new Family(name, (Order) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
@@ -78,8 +77,8 @@ public final class ClassificationFactory implements Factory{
 
             case "Genus":
                 if (!alreadyExists(name, Genus.class)) {
-                    ClassificationManager.addClasification(new Genus(name, (Family) parant));
-                    break;
+                    return ClassificationManager.addClasification(new Genus(name, (Family) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
@@ -87,35 +86,28 @@ public final class ClassificationFactory implements Factory{
 
             case "Species":
                 if (!alreadyExists(name, Species.class)) {
-                    ClassificationManager.addClasification(new Species(name, (Genus) parant));
-                    break;
+                    return ClassificationManager.addClasification(new Species(name, (Genus) parant));
+
                 } else {
                     //TODO make this into a real error, this is a placeholder
                     throw new IllegalArgumentException("Name already exists");
                 }
 
             default:
-                throw new ClassNotFoundException("Class:" + name + " does not exisit");
+                throw new ClassNotFoundException("Class : " + type + " does not exists");
         }
+        
+        
 
     }
 
-    public static boolean alreadyExists(String name, Class c) {
-        try {
-            Object object = c.newInstance();
-
-            for (int i = 0; i < classList.size(); i++) {
-                if (classList.get(i).getClass().equals(object)) {
-                    if (classList.get(i).getName().equalsIgnoreCase(name)) {
-                        return true;
-                    }
+    public static boolean alreadyExists(String name, Object c) {
+        for (int i = 0; i < classList.size(); i++) {
+            if (classList.get(i).getClass().equals(c)) {
+                if (classList.get(i).getName().equalsIgnoreCase(name)) {
+                    return true;
                 }
             }
-
-        } catch (InstantiationException ex) {
-            Logger.getLogger(ClassificationFactory.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(ClassificationFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }

@@ -2,6 +2,7 @@ package com.sbnvw.artemis.managers;
 
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -11,6 +12,7 @@ public class AnimalManager {
 
     private static AnimalManager animalManager = null;
     private static ArrayList<Animal> animals = new ArrayList<>();
+    private static List<Observer> observers = new ArrayList<>();
 
     private AnimalManager() {
     }
@@ -28,10 +30,12 @@ public class AnimalManager {
         return animalManager;
     }
 
-    public static int addAnimalToList(Animal a) {
+    public static Animal addAnimalToList(Animal a) {
 
         animals.add(a);
-        return animals.size() - 1;
+        FactoryManager f = new FactoryManager();
+        f.alert();
+        return a;
     }
 
     public static int removeAnimalFromList(Animal a) {
@@ -50,10 +54,10 @@ public class AnimalManager {
     public static ArrayList<Animal> getAnimals() {
         return animals;
     }
-    
-    public static void clearList(){
+
+    public static void clearList() {
         animals.clear();
-        
+
     }
 
 }
