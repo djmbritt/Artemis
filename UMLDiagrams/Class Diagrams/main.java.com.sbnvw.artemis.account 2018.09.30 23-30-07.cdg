@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.sbnvw.artemis.account">
+  <ClassDiagramComponents>
+    <Class name="SystemAdministrator" package="com.sbnvw.artemis.account" visibility="public" xPosition="2118.0" yPosition="909.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserInformation" package="com.sbnvw.artemis.account" visibility="public" isAbstract="true" xPosition="425.0" yPosition="34.0">
+      <Fields>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="firstName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="dateOfBirth" type="Date" visibility="private"/>
+        <Field name="sex" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="phoneNumber" type="int" visibility="private"/>
+        <Field name="addres" type="String" visibility="private"/>
+        <Field name="houseNumber" type="int" visibility="private"/>
+        <Field name="addition" type="String" visibility="private"/>
+        <Field name="postalCode" type="String" visibility="private"/>
+        <Field name="profilePicture" type="Image" visibility="private"/>
+        <Field name="dateAccountCreation" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUserName" returnType="String" visibility="public"/>
+        <Method name="setUserName" returnType="void" visibility="public">
+          <Argument type="String" name="userName"/>
+        </Method>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="firstName"/>
+        </Method>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="getDateOfBirth" returnType="Date" visibility="public"/>
+        <Method name="setDateOfBirth" returnType="void" visibility="public">
+          <Argument type="Date" name="dateOfBirth"/>
+        </Method>
+        <Method name="getSex" returnType="String" visibility="public"/>
+        <Method name="setSex" returnType="void" visibility="public">
+          <Argument type="String" name="sex"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPhoneNumber" returnType="int" visibility="public"/>
+        <Method name="setPhoneNumber" returnType="void" visibility="public">
+          <Argument type="int" name="phoneNumber"/>
+        </Method>
+        <Method name="getAddres" returnType="String" visibility="public"/>
+        <Method name="setAddres" returnType="void" visibility="public">
+          <Argument type="String" name="addres"/>
+        </Method>
+        <Method name="getHouseNumber" returnType="int" visibility="public"/>
+        <Method name="setHouseNumber" returnType="void" visibility="public">
+          <Argument type="int" name="houseNumber"/>
+        </Method>
+        <Method name="getAddition" returnType="String" visibility="public"/>
+        <Method name="setAddition" returnType="void" visibility="public">
+          <Argument type="String" name="addition"/>
+        </Method>
+        <Method name="getPostalCode" returnType="String" visibility="public"/>
+        <Method name="setPostalCode" returnType="void" visibility="public">
+          <Argument type="String" name="postalCode"/>
+        </Method>
+        <Method name="getProfilePicture" returnType="Image" visibility="public"/>
+        <Method name="setProfilePicture" returnType="void" visibility="public">
+          <Argument type="Image" name="profilePicture"/>
+        </Method>
+        <Method name="getDateAccountCreation" returnType="Date" visibility="public"/>
+        <Method name="setDateAccountCreation" returnType="void" visibility="public">
+          <Argument type="Date" name="dateAccountCreation"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Guest" package="com.sbnvw.artemis.account" visibility="public" xPosition="934.0" yPosition="940.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Administrator" package="com.sbnvw.artemis.account" visibility="public" xPosition="1272.0" yPosition="898.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="User" package="com.sbnvw.artemis.account" visibility="public" xPosition="1687.0" yPosition="882.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="userName"/>
+          <Argument type="String" name="firstName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="Date" name="dateOfBirth"/>
+          <Argument type="String" name="sex"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="phoneNumber"/>
+          <Argument type="String" name="addres"/>
+          <Argument type="int" name="houseNumber"/>
+          <Argument type="String" name="addition"/>
+          <Argument type="String" name="postalCode"/>
+          <Argument type="Image" name="profilePicture"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public"/>
+        <Method name="readUser" returnType="void" visibility="public"/>
+        <Method name="updateUser" returnType="void" visibility="public"/>
+        <Method name="deleteUser" returnType="void" visibility="public"/>
+        <Method name="createArticle" returnType="void" visibility="public"/>
+        <Method name="readArticle" returnType="void" visibility="public"/>
+        <Method name="updateArticle" returnType="void" visibility="public"/>
+        <Method name="deleteArticle" returnType="void" visibility="public"/>
+        <Method name="suggestArticle" returnType="void" visibility="public"/>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserLogin" package="com.sbnvw.artemis.account" visibility="public" isAbstract="true" xPosition="483.0" yPosition="940.0">
+      <Fields>
+        <Field name="userID" type="Integer" visibility="private" isStatic="true"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="password"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUserID" returnType="int" visibility="public"/>
+        <Method name="getUserPassword" returnType="String" visibility="public"/>
+        <Method name="setuserPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AccountFactory" package="com.sbnvw.artemis.account" visibility="public" xPosition="438.0" yPosition="1479.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="createAccount" returnType="GetAccount" visibility="public" isStatic="true">
+          <Argument type="String" name="accountType"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="UserManagement" package="com.sbnvw.artemis.account" visibility="public" xPosition="983.0" yPosition="134.0">
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="readUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="updateUser" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="deleteUser" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+    <Interface name="ArticleManagement" package="com.sbnvw.artemis.account" visibility="public" xPosition="1272.0" yPosition="256.0">
+      <Methods>
+        <Method name="createArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="readArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="updateArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="deleteArticle" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="suggestArticle" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Interface>
+    <Interface name="GetAccount" package="com.sbnvw.artemis.account" visibility="public" xPosition="1312.0" yPosition="1497.0">
+      <Methods>
+        <Method name="getAccountType" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.GetAccount"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.UserInformation"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.UserInformation" target="com.sbnvw.artemis.account.UserManagement"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.GetAccount"/>
+    <UseRelation source="com.sbnvw.artemis.account.AccountFactory" target="com.sbnvw.artemis.account.GetAccount" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.User" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.SystemAdministrator" target="com.sbnvw.artemis.account.UserInformation"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.SystemAdministrator" target="com.sbnvw.artemis.account.GetAccount"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.ArticleManagement"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.UserLogin"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.Administrator" target="com.sbnvw.artemis.account.UserInformation"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.account.UserInformation" target="com.sbnvw.artemis.account.UserLogin"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.account.Guest" target="com.sbnvw.artemis.account.GetAccount"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

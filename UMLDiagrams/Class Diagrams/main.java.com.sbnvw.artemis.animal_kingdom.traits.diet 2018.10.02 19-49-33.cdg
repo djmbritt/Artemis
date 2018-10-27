@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.sbnvw.artemis.animal_kingdom.traits.diet">
+  <ClassDiagramComponents>
+    <Class name="Eats_Meat" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="diet" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Diet" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Methods>
+        <Method name="diet" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Eats_Plants" package="com.sbnvw.artemis.animal_kingdom.traits.diet" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="diet" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Plants" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.diet.Eats_Meat" target="com.sbnvw.artemis.animal_kingdom.traits.diet.Diet"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

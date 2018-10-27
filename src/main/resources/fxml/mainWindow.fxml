@@ -3,11 +3,15 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
+
+<BorderPane fx:id="mainWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-image: img\GreenField.png;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sbnvw.artemis.controllers.MainWindowController">
    <top>
       <VBox alignment="TOP_CENTER" prefHeight="120.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
          <children>
@@ -15,6 +19,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
+                    <MenuItem fx:id="logoutID" mnemonicParsing="false" onAction="#logOut" text="Logout" />
                     <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeApp" text="Close" />
                   </items>
                 </Menu>
@@ -30,16 +35,26 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <HBox alignment="CENTER" prefHeight="63.0" prefWidth="1600.0" style="-fx-background-color: D5D1C6;" VBox.vgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="291.0" fitWidth="813.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Artemis_trans.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <AnchorPane fx:id="centerAnchor" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="centerAnchor" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" />
+         </children>
+      </AnchorPane>
    </center>
-   <right>
-      <AnchorPane fx:id="rightAnchor" prefHeight="780.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
-   </right>
    <left>
-      <AnchorPane fx:id="leftAnchor" prefHeight="780.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="leftAnchor" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.sbnvw.artemis.animal_kingdom.traits.fur">
+  <ClassDiagramComponents>
+    <Class name="Long_Hear" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="172.0" yPosition="407.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Feathers" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="331.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Short_Hear" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="14.0" yPosition="19.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="fur" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Fur" package="com.sbnvw.artemis.animal_kingdom.traits.fur" visibility="public" xPosition="154.0" yPosition="203.0">
+      <Methods>
+        <Method name="fur" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Feathers" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Short_Hear" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="com.sbnvw.artemis.animal_kingdom.traits.fur.Long_Hear" target="com.sbnvw.artemis.animal_kingdom.traits.fur.Fur"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

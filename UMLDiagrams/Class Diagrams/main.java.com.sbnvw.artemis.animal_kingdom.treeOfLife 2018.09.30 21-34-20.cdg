@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.sbnvw.artemis.animal_kingdom.treeOfLife">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="com.sbnvw.artemis.animal_kingdom.treeOfLife" visibility="public" isAbstract="true" xPosition="62.0" yPosition="325.0">
+      <Fields>
+        <Field name="animals" type="int" visibility="private" isStatic="true"/>
+        <Field name="animalID" type="int" visibility="private" isFinal="true"/>
+        <Field name="name" type="String" visibility="private" isFinal="true"/>
+        <Field name="hasHeartBeat" type="boolean" visibility="private" isFinal="true"/>
+        <Field name="diet" type="Diet" visibility="private"/>
+        <Field name="fur" type="Fur" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAnimalID" returnType="int" visibility="public"/>
+        <Method name="getAnimals" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getHasHeartBeat" returnType="boolean" visibility="public"/>
+        <Method name="setDiet" returnType="void" visibility="public">
+          <Argument type="Diet" name="diet"/>
+        </Method>
+        <Method name="getDiet" returnType="Diet" visibility="public"/>
+        <Method name="setFur" returnType="void" visibility="public">
+          <Argument type="Fur" name="fur"/>
+        </Method>
+        <Method name="getFur" returnType="Fur" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mammalia" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia" visibility="public" isAbstract="true" xPosition="556.0" yPosition="47.0">
+      <Fields>
+        <Field name="mammals" type="int" visibility="private" isStatic="true"/>
+        <Field name="mammalID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMammalID" returnType="int" visibility="public"/>
+        <Method name="getMammals" returnType="int" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Cats" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats" visibility="public" isAbstract="true" xPosition="1170.0" yPosition="47.0">
+      <Fields>
+        <Field name="cats" type="int" visibility="private" isStatic="true"/>
+        <Field name="catsID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCatID" returnType="int" visibility="public"/>
+        <Method name="getCats" returnType="int" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats" visibility="public" xPosition="1170.0" yPosition="315.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Canidae" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae" visibility="public" isAbstract="true" xPosition="880.0" yPosition="315.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Dog" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs" visibility="public" xPosition="886.0" yPosition="539.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Carnivora" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora" visibility="public" isAbstract="true" xPosition="876.0" yPosition="55.0">
+      <Fields>
+        <Field name="carnivoras" type="int" visibility="private" isStatic="true"/>
+        <Field name="carnivoraID" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setDiet" returnType="void" visibility="public">
+          <Argument type="Diet" name="diet"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Salmonidae" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.salmonidae" visibility="public" xPosition="556.0" yPosition="539.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Actinopterygii" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii" visibility="public" isAbstract="true" xPosition="550.0" yPosition="315.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Chordate" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate" visibility="public" isAbstract="true" xPosition="77.0" yPosition="47.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Parrots" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots" visibility="public" isAbstract="true" xPosition="332.0" yPosition="539.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="OldWorldParrots" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.oldWorldParrots" visibility="public" xPosition="305.0" yPosition="729.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Birds" package="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds" visibility="public" isAbstract="true" xPosition="336.0" yPosition="315.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.Birds" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.smallCats.Cat" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.Cats"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.dogs.Dog" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.Canidae"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.oldWorldParrots.OldWorldParrots" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.Parrots"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.parrots.Parrots" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Birds.Birds"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.Mammalia" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.canidae.Canidae" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.Actinopterygii" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.Chordate" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.salmonidae.Salmonidae" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.actinopterygii.Actinopterygii"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.cats.Cats" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora"/>
+    <IsRelation name="is" source="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.carnivora.Carnivora" target="com.sbnvw.artemis.animal_kingdom.treeOfLife.chordate.mammalia.Mammalia"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
