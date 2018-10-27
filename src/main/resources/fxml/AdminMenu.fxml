@@ -11,5 +11,6 @@
    <children>
       <Button minHeight="25.0" minWidth="150.0" mnemonicParsing="false" onAction="#makeNewPage" text="Animal Creator" />
       <Button mnemonicParsing="false" onAction="#makeNewTrait" text="Trait Creator" />
+      <Button mnemonicParsing="false" onAction="#makeNewQuiz" text="Quiz Creator" />
    </children>
 </VBox>
