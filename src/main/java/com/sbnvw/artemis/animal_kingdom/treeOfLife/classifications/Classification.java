@@ -2,6 +2,7 @@ package com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications;
 
 import com.sbnvw.artemis.animal_kingdom.traits.Trait;
 import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  *
  * @author Marcel van Wilgenburg
  */
-public abstract class Classification {
+public abstract class Classification implements Serializable{
 
     private String Name;
     protected List<Trait> traits = new ArrayList();

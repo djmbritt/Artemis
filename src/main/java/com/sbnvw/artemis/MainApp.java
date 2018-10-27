@@ -5,6 +5,7 @@ import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
 import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.io.IOUsers;
+import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -82,6 +83,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
+//        AnimalManager a = AnimalManager.getInstance();
+//        
         Setup s = new Setup();
 
         setMainStage(stage);
@@ -97,6 +100,8 @@ public class MainApp extends Application {
         iousers.load().forEach((t) -> {
             System.out.println(t);
         });
+        
+        
 
     }
 

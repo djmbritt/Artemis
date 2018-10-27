@@ -1,6 +1,8 @@
 package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
+import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
+import com.sbnvw.artemis.managers.AnimalManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +37,15 @@ public class AdminMenuController implements Initializable {
     @FXML
     public void makeNewTrait(ActionEvent event) throws IOException {
         MainApp.loadFXMLFileInNewWindow("/fxml/makeNewTrait.fxml", "Trait Creator");
+
+    }
+
+    @FXML
+    public void remove(ActionEvent event) throws ClassNotFoundException {
+        Animal A = MainSearchWindowController.getSelf().getSelectedItem();
+        AnimalManager.removeAnimalFromList(A);
+        
+        
 
     }
 

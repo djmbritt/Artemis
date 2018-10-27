@@ -17,7 +17,7 @@ public class SearchController {
     private MainSearchWindowController viewController;
     private List<Animal> animals;
 
-    public SearchController() {
+    public SearchController() throws ClassNotFoundException {
 
         this.searchEngine = new SearchEngine();
         this.viewController = MainSearchWindowController.getSelf();

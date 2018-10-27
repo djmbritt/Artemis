@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -27,7 +30,10 @@ public class MainSearchWindowController implements Initializable, Observer {
     private ListView<Animal> animals;
     @FXML
     private TextField searchBar;
+    @FXML
+    private AnchorPane prefwindow;
 
+    private Animal selectedAnimal;
     private static MainSearchWindowController self;
     private SearchController searchController;
 
@@ -39,15 +45,24 @@ public class MainSearchWindowController implements Initializable, Observer {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        
         FactoryManager m = new FactoryManager();
         m.attach(this);
         updateList();
         self = this;
-        searchController = new SearchController();
+        try {
+            searchController = new SearchController();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainSearchWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             search();
         });
+        
+        
 
     }
 
@@ -82,12 +97,30 @@ public class MainSearchWindowController implements Initializable, Observer {
         return searchBar;
     }
 
-    public static MainSearchWindowController getSelf() {
+    public static MainSearchWindowController getSelf() throws ClassNotFoundException {
         if (self == null) {
-            return null;
+            throw new ClassNotFoundException("Class not found");
         } else {
 
             return self;
+
+        }
+
+    }
+
+    @FXML
+    public void getSelectedAnimal() {
+        selectedAnimal = animals.getSelectionModel().getSelectedItem();
+        System.out.println(selectedAnimal.toString());
+    }
+
+    public Animal getSelectedItem() throws IllegalArgumentException {
+
+        if (selectedAnimal != null) {
+            return selectedAnimal;
+        } else {
+
+            throw new IllegalArgumentException("No animal selected");
 
         }
 
