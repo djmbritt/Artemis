@@ -12,7 +12,7 @@ import java.util.List;
 public class QuestionGroup implements Quiz {
 
     private String typeName;
-    
+
     private List<Quiz> quiz;
 
     public QuestionGroup(String typeName) {
@@ -32,6 +32,14 @@ public class QuestionGroup implements Quiz {
         for (int i = 0; i < quiz.size(); i++) {
             System.out.println(quiz.get(i));
         }
+    }
+    
+    public List<Quiz> getQuiz() {
+        return quiz;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
     
     @Override
