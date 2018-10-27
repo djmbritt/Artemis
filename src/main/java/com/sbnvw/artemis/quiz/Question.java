@@ -10,6 +10,7 @@ public class Question implements Quiz {
 
     private String typeName;
     private String question;
+    private String answer;
 
     public void question(String question) {
         this.question = question;
@@ -17,6 +18,14 @@ public class Question implements Quiz {
 
     public String getQuestionType() {
         return this.typeName;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getAnswer() {
+        return answer;
     }
 
     public String getTypeName() {
