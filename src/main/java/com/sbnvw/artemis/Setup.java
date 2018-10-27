@@ -1,5 +1,7 @@
 package com.sbnvw.artemis;
 
+import com.sbnvw.artemis.animal_kingdom.traits.TraitBehaviour;
+import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.ClassType;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Family;
@@ -10,6 +12,8 @@ import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Phylum;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Species;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.AnimalFactory;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.ClassificationFactory;
+import com.sbnvw.artemis.managers.ClassificationManager;
+import com.sbnvw.artemis.managers.TraitsManager;
 
 /**
  *
@@ -33,6 +37,13 @@ public class Setup {
         Genus felis = (Genus) ClassificationFactory.makeClassification("Felis", Felidae, "Genus");
         Species cat = (Species) ClassificationFactory.makeClassification("Cat", felis, "Species");
         Animal korthaar = AnimalFactory.makeAnimal("Korthaar", cat);
+
+        TraitGroup diet = new TraitGroup("Diet");
+        diet.addTraitBehaviour(new TraitBehaviour("Eats meat", diet));
+        diet.addTraitBehaviour(new TraitBehaviour("Eats plants", diet));
+        diet.addTraitBehaviour(new TraitBehaviour("Eats meat and plants", diet));
+        
+        ClassificationManager.getClassificationByName("Carnivora").addTrait(diet.getTraitBehaviours().get(0));
 
     }
 

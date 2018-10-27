@@ -22,13 +22,9 @@ public class TraitBehaviour extends Trait{
         return traitGroup;
     }
 
-    public void addTraitBehaviour(TraitBehaviour t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.behaviour;
     }
 
 }

@@ -23,7 +23,7 @@ public class Kingdom extends Classification {
     public List<Trait> getTraits() {
         List trList = new ArrayList();
         for (int i = 0; i < traits.size(); i++) {
-            trList.add(getTraits().size());
+            trList.add(traits.get(i));
         }
 
         return trList;

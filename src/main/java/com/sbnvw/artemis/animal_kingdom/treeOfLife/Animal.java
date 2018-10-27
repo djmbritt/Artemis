@@ -34,8 +34,8 @@ public class Animal implements Serializable {
         return species;
     }
 
-    public List getTraits() {
-        List<Trait> traits = new ArrayList<>();
+    public List<Trait> getTraits() {
+        List<Trait> traits = getSpecies().getTraits();
 
         return traits;
 
@@ -47,7 +47,15 @@ public class Animal implements Serializable {
 
     @Override
     public String toString() {
-       return getSpecies().getName() + " : " + getName();
+        String traits = "Traits";
+        List<Trait> tr = getTraits();
+        for (int i = 0; i < tr.size(); i++) {
+            traits += " : "+tr.get(i).getName();
+            
+        }
+        
+        
+       return getSpecies().getName() + " : " + getName() + " : " + traits;
     }
     
     
