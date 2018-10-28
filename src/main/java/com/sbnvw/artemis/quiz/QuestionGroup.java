@@ -11,9 +11,8 @@ import java.util.List;
  */
 public class QuestionGroup implements Quiz {
 
-    private String typeName;
-
-    private List<Quiz> quiz;
+    private static String typeName;
+    private static List<Quiz> quiz;
 
     public QuestionGroup(String typeName) {
         this.typeName = typeName;
@@ -34,12 +33,16 @@ public class QuestionGroup implements Quiz {
         }
     }
     
-    public List<Quiz> getQuiz() {
+    public static List<Quiz> getQuiz() {
         return quiz;
     }
-
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    
+    public static String getTypeName() {
+        return typeName;
+    }
+    
+    public static void setTypeName(String aTypeName) {
+        typeName = aTypeName;
     }
     
     @Override

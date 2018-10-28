@@ -5,8 +5,10 @@
  */
 package com.sbnvw.artemis.controllers;
 
+import com.sbnvw.artemis.quiz.QuestionGroup;
 import com.sbnvw.artemis.quiz.Quiz;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,5 +41,11 @@ public class MakeNewQuizController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void updateList(){
+        questionList.getItems().clear();
+        List<Quiz> quizList = QuestionGroup.getQuiz();
+        
+    }
     
 }
