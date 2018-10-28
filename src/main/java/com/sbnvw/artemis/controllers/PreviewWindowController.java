@@ -16,11 +16,9 @@ import javafx.scene.text.Text;
 public class PreviewWindowController implements Initializable {
 
     @FXML
-    private ImageView exPic;
-
-    @FXML
     private Text header;
-
+    @FXML
+    private Text name;
     @FXML
     private TextArea textField;
 
@@ -31,12 +29,22 @@ public class PreviewWindowController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-    
-    
-    public PreviewWindowController getController(){
+
+    public PreviewWindowController getController() {
         return this;
-        
-    
-};
+
+    }
+
+    public Text getName() {
+        return name;
+    }
+
+    public Text getHeader() {
+        return header;
+    }
+
+    public TextArea getTextField() {
+        return textField;
+    }
 
 }

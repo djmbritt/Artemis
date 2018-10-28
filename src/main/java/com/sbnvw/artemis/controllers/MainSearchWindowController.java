@@ -1,11 +1,13 @@
 package com.sbnvw.artemis.controllers;
 
+import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import com.sbnvw.artemis.managers.AnimalManager;
 import com.sbnvw.artemis.managers.FactoryManager;
 import com.sbnvw.artemis.managers.Observer;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -45,9 +47,7 @@ public class MainSearchWindowController implements Initializable, Observer {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        
+
         FactoryManager m = new FactoryManager();
         m.attach(this);
         updateList();
@@ -61,14 +61,21 @@ public class MainSearchWindowController implements Initializable, Observer {
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
             search();
         });
-        
-        
 
     }
 
     public void updateList() {
         animals.getItems().clear();
-        List<Animal> a = AnimalManager.getAnimals();
+        List<Animal> a = new ArrayList<>();
+
+        List<ArrayList> listsList = MainApp.getCEO().getDictionary();
+
+        for (int i = 0; i < listsList.size(); i++) {
+            if (listsList.get(i).get(0) instanceof Animal) {
+                a = listsList.get(i);
+            }
+        }
+
         for (int i = 0; i < a.size(); i++) {
             animals.getItems().add(a.get(i));
         }
@@ -111,7 +118,9 @@ public class MainSearchWindowController implements Initializable, Observer {
     @FXML
     public void getSelectedAnimal() {
         selectedAnimal = animals.getSelectionModel().getSelectedItem();
-        System.out.println(selectedAnimal.toString());
+
+        setPreviewWindow();
+
     }
 
     public Animal getSelectedItem() throws IllegalArgumentException {
@@ -124,6 +133,13 @@ public class MainSearchWindowController implements Initializable, Observer {
 
         }
 
+    }
+
+    private void setPreviewWindow() {
+        PreviewWindowController cont = (PreviewWindowController) MainApp.loadFXMLFile(prefwindow, "/fxml/PreviewWindow.fxml");
+        cont.getHeader().setText(selectedAnimal.getSpecies().getName());
+        cont.getName().setText(selectedAnimal.getName());
+        cont.getTextField().setText(selectedAnimal.getDesc());
     }
 
 }

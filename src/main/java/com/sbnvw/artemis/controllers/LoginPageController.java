@@ -125,6 +125,7 @@ public class LoginPageController implements Initializable {
     private void login() {
         
         if (true) {
+            MainApp.getMainWindowController().getCenterAnchor().getChildren().clear();
             MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
             MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         }

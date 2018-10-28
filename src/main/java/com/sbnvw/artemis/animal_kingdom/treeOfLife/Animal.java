@@ -6,12 +6,13 @@ import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.AnimalFactory;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javafx.scene.text.Text;
 
 public class Animal implements Serializable {
 
-    private final String name;
-    private final Species species;
+    private String name;
+    private Species species;
     private String desc;
 
     public Animal(String name, Species species) {
@@ -50,14 +51,11 @@ public class Animal implements Serializable {
         String traits = "Traits";
         List<Trait> tr = getTraits();
         for (int i = 0; i < tr.size(); i++) {
-            traits += " : "+tr.get(i).getName();
-            
+            traits += " : " + tr.get(i).getName();
+
         }
-        
-        
-       return getSpecies().getName() + " : " + getName() + " : " + traits;
+
+        return getSpecies().getName() + " : " + getName() + " : " + traits;
     }
-    
-    
 
 }

@@ -1,18 +1,11 @@
 package com.sbnvw.artemis.controllers;
 
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.ClassType;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Classification;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Family;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Genus;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Kingdom;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Order;
-import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Phylum;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Species;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.AnimalFactory;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.ClassificationFactory;
 import com.sbnvw.artemis.managers.ClassificationManager;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -21,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;

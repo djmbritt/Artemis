@@ -5,6 +5,8 @@
  */
 package com.sbnvw.artemis.io;
 
+import com.sbnvw.artemis.animal_kingdom.traits.Trait;
+import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -21,27 +23,27 @@ import java.util.logging.Logger;
  *
  * @author djmbritt
  */
-public class IOAnimals implements Serializable {
+public class IOTraits implements Serializable {
 
-    private static final String ANIMALFILELOCATION = "animals.dat";
+    private static final String TRAITSLOCATION = "traits.dat";
 
-    public void saveData(ArrayList<Animal> a) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ANIMALFILELOCATION))) {
+    public void saveData(List<TraitGroup> a) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(TRAITSLOCATION))) {
 
             oos.writeObject(a);
             oos.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(IOAnimals.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOTraits.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public ArrayList<Animal> loadData() {
-        ArrayList<Animal> list = null;
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ANIMALFILELOCATION))) {
-            list = (ArrayList<Animal>) ois.readObject();
+    public ArrayList<TraitGroup> loadData() {
+        ArrayList<TraitGroup> list = null;
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(TRAITSLOCATION))) {
+            list = (ArrayList<TraitGroup>) ois.readObject();
         } catch (Exception ex) {
-            Logger.getLogger(IOAnimals.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IOTraits.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return list;

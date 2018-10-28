@@ -3,6 +3,7 @@ package com.sbnvw.artemis.managers;
 import com.sbnvw.artemis.animal_kingdom.traits.TraitBehaviour;
 import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.factorys.Factory;
+import com.sbnvw.artemis.io.IOTraits;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +13,17 @@ import java.util.List;
  */
 public class TraitsManager {
 
-    private static final List<TraitGroup> TRAIT_GROUPS = new ArrayList<>();
+    private static ArrayList<TraitGroup> TRAIT_GROUPS = new ArrayList<>();
+    private static ArrayList<TraitBehaviour> behaviours = new ArrayList<>();
     private static final FactoryManager factoryManager = new FactoryManager();
+    private static ArrayList<ArrayList> traitsStore = new ArrayList<>();
+    private static final IOTraits loader = new IOTraits();
 
     public static TraitGroup addTraitGroup(TraitGroup traitGroup) {
         TRAIT_GROUPS.add(traitGroup);
+        updateBehaveiors();
         factoryManager.alert();
+        save();
         return traitGroup;
 
     }
@@ -60,6 +66,48 @@ public class TraitsManager {
         }
 
         return o;
+    }
+
+    public static void load() {
+        TRAIT_GROUPS = loader.loadData();
+
+    }
+
+    public static void save() {
+
+        loader.saveData(TRAIT_GROUPS);
+    }
+
+    public static void setTRAIT_GROUPS(ArrayList<TraitGroup> TRAIT_GROUPS) {
+        TraitsManager.TRAIT_GROUPS = TRAIT_GROUPS;
+    }
+
+    public static void updateBehaveiors() {
+
+        behaviours.clear();
+        traitsStore.clear();
+
+        for (int i = 0; i < TRAIT_GROUPS.size(); i++) {
+            TraitGroup t = TRAIT_GROUPS.get(i);
+            for (int j = 0; j < t.getTraitBehaviours().size(); j++) {
+                behaviours.add(t.getTraitBehaviours().get(j));
+            }
+        }
+
+        traitsStore.add((ArrayList) TRAIT_GROUPS);
+        traitsStore.add((ArrayList) behaviours);
+        factoryManager.alert();
+    }
+
+    public static ArrayList<ArrayList> getTraitsStore() {
+        return traitsStore;
+    }
+
+    public static void setTraitsStoreAndUpdate(List<ArrayList> traitsStore) {
+        TraitsManager.traitsStore = (ArrayList<ArrayList>) traitsStore;
+        TRAIT_GROUPS = traitsStore.get(0);
+        behaviours = traitsStore.get(1);
+
     }
 
 }

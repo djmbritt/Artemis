@@ -80,4 +80,8 @@ public class AnimalManager {
         loader.saveData(AnimalManager.getAnimals());
     }
 
+    public static void setAnimals(ArrayList<Animal> animals) {
+        AnimalManager.animals = animals;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.sbnvw.artemis.animal_kingdom.traits;
 
 import com.sbnvw.artemis.managers.TraitsManager;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class TraitGroup extends Trait {
 
     public void addTraitBehaviour(TraitBehaviour t) {
         traitBehaviours.add(t);
+        TraitsManager.updateBehaveiors();
     }
 
     @Override
@@ -30,7 +32,5 @@ public class TraitGroup extends Trait {
     public List<TraitBehaviour> getTraitBehaviours() {
         return traitBehaviours;
     }
-    
-    
 
 }

@@ -1,10 +1,13 @@
 package com.sbnvw.artemis.animal_kingdom.traits;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  *
  * @author Marcel van Wilgenburg
  */
-public class TraitBehaviour extends Trait{
+public class TraitBehaviour extends Trait implements Serializable{
 
     private String behaviour;
     private TraitGroup traitGroup;
@@ -26,5 +29,6 @@ public class TraitBehaviour extends Trait{
     public String getName() {
         return this.behaviour;
     }
+    
 
 }

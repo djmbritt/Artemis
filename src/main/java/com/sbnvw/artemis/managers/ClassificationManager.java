@@ -8,6 +8,7 @@ import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Kingdom;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Order;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Phylum;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.classifications.Species;
+import com.sbnvw.artemis.io.IOClassifications;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.RadioMenuItem;
@@ -20,6 +21,7 @@ public class ClassificationManager {
 
     private static List<Classification> classifications = new ArrayList<>();
     private static List<Observer> observers = new ArrayList<>();
+    private static IOClassifications loader = new IOClassifications();
 
     private static final List<Kingdom> kingdoms = new ArrayList<>();
     private static final List<Phylum> phylums = new ArrayList<>();
@@ -59,6 +61,7 @@ public class ClassificationManager {
 
         FactoryManager f = new FactoryManager();
         f.alert();
+        save();
 
         return classification;
 
@@ -115,6 +118,51 @@ public class ClassificationManager {
 
     public static List<Species> getSpecieses() {
         return specieses;
+    }
+
+    public static void setClassifications(List<Classification> classifications) {
+        ClassificationManager.classifications = classifications;
+        initSubLists();
+    }
+
+    public static void load() {
+        classifications = loader.loadData();
+
+    }
+
+    public static void save() {
+        loader.saveData(classifications);
+
+    }
+
+    private static void initSubLists() {
+
+        for (int i = 0; i < classifications.size(); i++) {
+            Object o = classifications.get(i);
+            if (o instanceof Kingdom) {
+                kingdoms.add((Kingdom) o);
+
+            } else if (o instanceof Phylum) {
+                phylums.add((Phylum) o);
+
+            } else if (o instanceof Family) {
+                familys.add((Family) o);
+
+            } else if (o instanceof Genus) {
+                genuses.add((Genus) o);
+
+            } else if (o instanceof Order) {
+                orders.add((Order) o);
+
+            } else if (o instanceof ClassType) {
+                classTypes.add((ClassType) o);
+
+            } else if (o instanceof Species) {
+                specieses.add((Species) o);
+
+            }
+        }
+
     }
 
 }

@@ -1,11 +1,17 @@
 package com.sbnvw.artemis;
 
 import com.sbnvw.artemis.account.SystemAdministrator;
+import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
+import com.sbnvw.artemis.io.IOClassifications;
 import com.sbnvw.artemis.io.IOContext;
 import com.sbnvw.artemis.io.IOUsers;
 import com.sbnvw.artemis.managers.AnimalManager;
+import com.sbnvw.artemis.managers.CEO;
+import com.sbnvw.artemis.managers.ClassificationManager;
+import com.sbnvw.artemis.managers.TraitsManager;
+import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -27,6 +33,7 @@ public class MainApp extends Application {
     private static Stage mainStage;
     private static MainWindowController mainWindowController;
     private static MainSearchWindowController mainSearchWindowController;
+    private static CEO CEO;
 
     public static Stage getMainStage() {
         return mainStage;
@@ -82,10 +89,12 @@ public class MainApp extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        
-//        AnimalManager a = AnimalManager.getInstance();
-//        
-        Setup s = new Setup();
+        CEO = new CEO();
+        File file = new File("data.dat");
+
+        if (!file.exists()) {
+            Setup s = new Setup();
+        }
 
         setMainStage(stage);
         loadMainWindow();
@@ -100,8 +109,8 @@ public class MainApp extends Application {
         iousers.load().forEach((t) -> {
             System.out.println(t);
         });
-        
-        
+
+        CEO.setup();
 
     }
 
@@ -125,6 +134,8 @@ public class MainApp extends Application {
      * @return
      */
     public static Object loadFXMLFile(Pane parent, String fxmlFileName) {
+       
+      
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
@@ -150,6 +161,8 @@ public class MainApp extends Application {
      */
     public static void loadMainWindow() {
         try {
+            
+
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/mainWindow.fxml"));
             Parent root = fxmlLoader.load();
             Screen screen = Screen.getPrimary();
@@ -181,16 +194,8 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
         Pane pane = fxmlLoader.load();
 
-//        Screen screen = Screen.getPrimary();
-//        Rectangle2D bounds = screen.getVisualBounds();
-
         Scene scene = new Scene(pane);
         scene.getStylesheets().add("/styles/Styles.css");
-
-//        stage.setX(bounds.getMinX());
-//        stage.setY(bounds.getMinY());
-//        stage.setWidth(bounds.getWidth());
-//        stage.setHeight(bounds.getHeight());
 
         stage.setTitle(windowName);
         stage.setScene(scene);
@@ -199,4 +204,9 @@ public class MainApp extends Application {
         return fxmlLoader.getController();
 
     }
+
+    public static CEO getCEO() {
+        return CEO;
+    }
+
 }
