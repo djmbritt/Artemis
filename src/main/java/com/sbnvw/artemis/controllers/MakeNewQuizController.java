@@ -7,6 +7,7 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.io.IOQuiz;
+import com.sbnvw.artemis.managers.QuestionManager;
 import com.sbnvw.artemis.quiz.Question;
 import com.sbnvw.artemis.quiz.QuestionGroup;
 import com.sbnvw.artemis.quiz.Quiz;
@@ -43,11 +44,11 @@ public class MakeNewQuizController implements Initializable {
     @FXML
     private Button btnSave;
     
-    private IOQuiz ioQ;
     private Question q;
-    private String question;
+    private QuestionGroup qg;
     private List<Question> quiz;
     private Question selectedQuiz;
+    private QuestionManager qm;
     
     /**
      * Initializes the controller class.
@@ -59,8 +60,7 @@ public class MakeNewQuizController implements Initializable {
         // TODO
         
         q = new Question();
-        ioQ = new IOQuiz();
-        quiz = loadQuizzes();
+        qm = QuestionManager.getInstance();
         updateList();
     } 
     
@@ -69,6 +69,7 @@ public class MakeNewQuizController implements Initializable {
      */
     public void updateList() {
         questionList.getItems().clear();
+        quiz = qm.loadQuestions();
         for (int i = 0; i < quiz.size(); i++) {
             questionList.getItems().add(quiz.get(i));
         }
@@ -94,12 +95,11 @@ public class MakeNewQuizController implements Initializable {
         q.setQuestion(textfieldQuestion.getText());
         q.setAnswer(textfieldAnswer.getText());
         q.questionTypeName(textfieldGroup.getText());
-        ioQ.saveData(q);
+        qg = new QuestionGroup(textfieldGroup.getText());
+        qg.addQuestionToGroup(q);
+        qm.addQuestion(q);
+        qm.saveQuestions();
         updateList();
-    }
-    
-    public ArrayList<Question> loadQuizzes() {
-        return ioQ.loadData();
     }
     
 }
