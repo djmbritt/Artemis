@@ -102,8 +102,8 @@ public class MakeNewQuizController implements Initializable {
         qg = new QuestionGroup(textfieldGroup.getText());
         qg.addQuestionToGroup(q);
         qm.addQuestion(q);
-        qm.saveQuestions();
-        updateList();
+//        qm.saveQuestions();
+//        updateList();
     }
 
 }

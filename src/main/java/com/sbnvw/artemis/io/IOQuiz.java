@@ -27,9 +27,9 @@ public class IOQuiz {
      */
     public void saveData(ArrayList<Question> o) {
         question = loadData();
-        for (Question question1 : o) {
-            question.add(question1);
-        }
+//        for (Question question1 : o) {
+//            question.add(question1);
+//        }
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(QUIZFILELOCATION))) {
 
             oos.writeObject(question);

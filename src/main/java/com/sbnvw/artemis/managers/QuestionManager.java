@@ -30,10 +30,6 @@ public class QuestionManager {
         return qm;
     }
 
-    public QuestionManager getManager() {
-        return getInstance();
-    }
-
     public void addQuestion(Question q) {
         questionManager.add(q);
     }
