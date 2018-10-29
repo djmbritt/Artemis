@@ -2,23 +2,18 @@ package com.sbnvw.artemis.controllers;
 
 import com.sbnvw.artemis.MainApp;
 import com.sbnvw.artemis.animal_kingdom.treeOfLife.Animal;
-import com.sbnvw.artemis.managers.AnimalManager;
 import com.sbnvw.artemis.managers.FactoryManager;
 import com.sbnvw.artemis.managers.Observer;
-import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -71,9 +66,12 @@ public class MainSearchWindowController implements Initializable, Observer {
         List<ArrayList> listsList = MainApp.getCEO().getDictionary();
 
         for (int i = 0; i < listsList.size(); i++) {
-            if (listsList.get(i).get(0) instanceof Animal) {
-                a = listsList.get(i);
+            if (!listsList.get(i).isEmpty()) {
+                if (listsList.get(i).get(0) instanceof Animal) {
+                    a = listsList.get(i);
+                }
             }
+
         }
 
         for (int i = 0; i < a.size(); i++) {
