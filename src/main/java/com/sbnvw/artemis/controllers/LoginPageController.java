@@ -120,7 +120,6 @@ public class LoginPageController implements Initializable {
 
     private void login() {
 
-
         ObservableList<UserLogin> userList = FXCollections.observableArrayList();
         userList.addAll(new IOContext(new IOUsers()).load());
 
@@ -146,7 +145,7 @@ public class LoginPageController implements Initializable {
 
             System.out.println("loginInformation::size: " + userList.size());
             System.out.println("loginInformation::accounttype: " + loginInformation.toString());
-                MainApp.getMainWindowController().getCenterAnchor().getChildren().clear();
+            MainApp.getMainWindowController().getCenterAnchor().getChildren().clear();
 
             System.out.println("Username and password check out, running last check for accounttype.");
             if (loginInformation.getAccountType().equalsIgnoreCase("user")) {
