@@ -1,10 +1,8 @@
 package com.sbnvw.artemis.io;
 
 import com.sbnvw.artemis.quiz.Question;
-import com.sbnvw.artemis.quiz.Quiz;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -23,6 +21,10 @@ public class IOQuiz {
     private ArrayList<Question> question;
     private File file = new File(QUIZFILELOCATION);
 
+    /**
+     *
+     * @param o
+     */
     public void saveData(ArrayList<Question> o) {
         question = loadData();
         for (Question question1 : o) {
@@ -38,6 +40,10 @@ public class IOQuiz {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Question> loadData() {
 
         if (!file.exists()) {
@@ -46,9 +52,7 @@ public class IOQuiz {
         }
 
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(QUIZFILELOCATION))) {
-            System.out.println("cat");
             question.addAll((ArrayList<Question>) ois.readObject());
-            System.out.println("dog");
         } catch (Exception ex) {
             Logger.getLogger(IOAnimals.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -56,6 +60,10 @@ public class IOQuiz {
         return question;
     }
 
+    /**
+     *
+     * @return
+     */
     public int size() {
         return question.size();
     }
