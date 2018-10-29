@@ -39,6 +39,11 @@ public class AdminMenuController implements Initializable {
         MainApp.loadFXMLFileInNewWindow("/fxml/makeNewTrait.fxml", "Trait Creator");
 
     }
+    
+    @FXML
+    public void makeNewQuiz(ActionEvent event) throws IOException {
+        MainApp.loadFXMLFileInNewWindow("/fxml/makeNewQuiz.fxml", "Quiz Creator");
+    }
 
     @FXML
     public void remove(ActionEvent event) throws ClassNotFoundException {
