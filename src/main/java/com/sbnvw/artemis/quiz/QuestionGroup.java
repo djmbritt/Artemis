@@ -15,39 +15,44 @@ public class QuestionGroup implements Quiz {
     private static List<Quiz> quiz;
 
     public QuestionGroup(String typeName) {
-        this.typeName = typeName;
-        quiz = new ArrayList<>();
+        QuestionGroup.typeName = typeName;
+        QuestionGroup.quiz = new ArrayList<>();
     }
     
     public void addQuestionToGroup(Quiz question) {
-        quiz.add(question);
+        QuestionGroup.quiz.add(question);
     }
     
     public void removeQuestion(Quiz question) {
-        quiz.remove(question);
+        QuestionGroup.quiz.remove(question);
+    }
+    
+    public Question getQuestion(int questionIndex) {
+        return (Question)QuestionGroup.quiz.get(questionIndex);
     }
     
     public void printQuestions() {
-        for (int i = 0; i < quiz.size(); i++) {
-            System.out.println(quiz.get(i));
+        for (int i = 0; i < QuestionGroup.quiz.size(); i++) {
+            System.out.println(QuestionGroup.quiz.get(i));
         }
     }
     
     public static List<Quiz> getQuiz() {
-        return quiz;
+        return QuestionGroup.quiz;
     }
     
     public static String getTypeName() {
-        return typeName;
-    }
-    
-    public static void setTypeName(String aTypeName) {
-        typeName = aTypeName;
+        return QuestionGroup.typeName;
     }
     
     @Override
     public void questionTypeName(String name) {
-        this.typeName = name;
+        QuestionGroup.typeName = name;
+    }
+
+    @Override
+    public String getQuestionTypeName() {
+        return QuestionGroup.typeName;
     }
 
 }

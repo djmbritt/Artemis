@@ -10,5 +10,6 @@ package com.sbnvw.artemis.quiz;
 public interface Quiz {
 
     public void questionTypeName(String name);
+    public String getQuestionTypeName();
 
 }

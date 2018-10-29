@@ -1,12 +1,14 @@
 package com.sbnvw.artemis.quiz;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Donovan Schaafsma
  *
  * This class is the leaf in the composite design pattern.
  */
-public class Question implements Quiz {
+public class Question implements Quiz, Serializable {
 
     private String typeName;
     private String question;
@@ -47,6 +49,11 @@ public class Question implements Quiz {
     @Override
     public void questionTypeName(String name) {
         this.typeName = name;
+    }
+
+    @Override
+    public String getQuestionTypeName() {
+        return this.typeName;
     }
 
 }
