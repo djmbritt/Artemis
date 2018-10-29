@@ -101,7 +101,7 @@ public class LoginPageController implements Initializable {
     @FXML
     private void btnGuestLogin(ActionEvent event) {
 
-//        AccountFactory.createAccount("guest");
+        MainApp.getMainWindowController().getCenterAnchor().getChildren().clear();
         MainApp.getMainWindowController().loadLeftPane("/fxml/AdminMenu.fxml");
         MainApp.getMainWindowController().loadCenterPane("/fxml/MainSearchWindow.fxml");
 
