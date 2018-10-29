@@ -55,10 +55,11 @@ public class MakeNewQuizController implements Initializable {
 
         q = new Question();
         qm = QuestionManager.getInstance();
-//        updateList();
     }
 
     /**
+     * TODO: implement this method.
+     * 
      * Updates the list with quizzes and questions.
      */
     public void updateList() {
@@ -70,6 +71,7 @@ public class MakeNewQuizController implements Initializable {
     }
 
     /**
+     * TODO: implement this method.
      *
      * @param event
      * @throws IOException
@@ -83,6 +85,7 @@ public class MakeNewQuizController implements Initializable {
     }
 
     /**
+     * TODO: implement this method with the selection of the listView.
      *
      */
     public void initQuizQuestion() {
@@ -92,6 +95,7 @@ public class MakeNewQuizController implements Initializable {
     }
 
     /**
+     * TODO: saving of the question and update of the list.
      *
      * @param event
      */
@@ -102,8 +106,6 @@ public class MakeNewQuizController implements Initializable {
         qg = new QuestionGroup(textfieldGroup.getText());
         qg.addQuestionToGroup(q);
         qm.addQuestion(q);
-//        qm.saveQuestions();
-//        updateList();
     }
 
 }

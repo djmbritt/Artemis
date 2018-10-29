@@ -22,14 +22,12 @@ public class IOQuiz {
     private File file = new File(QUIZFILELOCATION);
 
     /**
+     * TODO: reading of the Arraylist<Question> o and adding to the this.question.
      *
      * @param o
      */
     public void saveData(ArrayList<Question> o) {
         question = loadData();
-//        for (Question question1 : o) {
-//            question.add(question1);
-//        }
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(QUIZFILELOCATION))) {
 
             oos.writeObject(question);

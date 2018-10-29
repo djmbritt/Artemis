@@ -22,6 +22,7 @@ public class QuestionGroup implements Quiz {
     }
 
     /**
+     * Constructor
      *
      */
     public QuestionGroup() {
