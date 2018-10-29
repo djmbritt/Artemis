@@ -119,6 +119,8 @@ public class LoginPageController implements Initializable {
     }
 
     private void login() {
+        
+        
 
         ObservableList<UserLogin> userList = FXCollections.observableArrayList();
         userList.addAll(new IOContext(new IOUsers()).load());
@@ -127,9 +129,8 @@ public class LoginPageController implements Initializable {
         Boolean checkLogin = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserLogin) user).getPassword()));
         Boolean userExist = userList.stream().anyMatch(user -> userNameField.getText().equals(((UserInformation) user).getEmail()));
 
-        UserInformation checkedUser = (UserInformation) userList.filtered(user -> userNameField.getText().equals(((UserInformation) user).getEmail()) && passwordField.getText().equals(((UserLogin) user).getPassword())).get(0);
 
-        new Alert(Alert.AlertType.INFORMATION, checkedUser.toString()).showAndWait();
+//        new Alert(Alert.AlertType.INFORMATION, checkedUser.toString()).showAndWait();
 
         if (!areFieldsFilledIn) {
             new Alert(Alert.AlertType.ERROR, "Please fill in all fields.").showAndWait();
