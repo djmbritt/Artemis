@@ -40,13 +40,16 @@ public class CEO implements Observer {
         dictionary = loader.loadData();
 
         for (int i = 0; i < dictionary.size(); i++) {
-            if (dictionary.get(i).get(0) instanceof Animal) {
-                AnimalManager.setAnimals(dictionary.get(i));
-            } else if (dictionary.get(i).get(0) instanceof ArrayList) {
-                TraitsManager.setTraitsStoreAndUpdate(dictionary.get(i));
-            } else if (dictionary.get(i).get(0) instanceof Classification) {
-                ClassificationManager.setClassifications(dictionary.get(i));
+            if (!dictionary.get(i).isEmpty()) {
+                if (dictionary.get(i).get(0) instanceof Animal) {
+                    AnimalManager.setAnimals(dictionary.get(i));
+                } else if (dictionary.get(i).get(0) instanceof ArrayList) {
+                    TraitsManager.setTraitsStoreAndUpdate(dictionary.get(i));
+                } else if (dictionary.get(i).get(0) instanceof Classification) {
+                    ClassificationManager.setClassifications(dictionary.get(i));
+                }
             }
+
         }
 
     }
