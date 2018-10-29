@@ -18,33 +18,33 @@ public class QuestionGroup implements Quiz {
         QuestionGroup.typeName = typeName;
         QuestionGroup.quiz = new ArrayList<>();
     }
-    
+
+    public QuestionGroup() {
+
+    }
+
     public void addQuestionToGroup(Quiz question) {
         QuestionGroup.quiz.add(question);
     }
-    
+
     public void removeQuestion(Quiz question) {
         QuestionGroup.quiz.remove(question);
     }
-    
+
     public Question getQuestion(int questionIndex) {
-        return (Question)QuestionGroup.quiz.get(questionIndex);
+        return (Question) QuestionGroup.quiz.get(questionIndex);
     }
-    
+
     public void printQuestions() {
         for (int i = 0; i < QuestionGroup.quiz.size(); i++) {
             System.out.println(QuestionGroup.quiz.get(i));
         }
     }
-    
+
     public static List<Quiz> getQuiz() {
         return QuestionGroup.quiz;
     }
-    
-    public static String getTypeName() {
-        return QuestionGroup.typeName;
-    }
-    
+
     @Override
     public void questionTypeName(String name) {
         QuestionGroup.typeName = name;
