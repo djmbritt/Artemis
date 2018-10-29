@@ -1,6 +1,7 @@
 package com.sbnvw.artemis;
 
 import com.sbnvw.artemis.account.SystemAdministrator;
+import com.sbnvw.artemis.account.UserLogin;
 import com.sbnvw.artemis.animal_kingdom.traits.TraitGroup;
 import com.sbnvw.artemis.controllers.MainSearchWindowController;
 import com.sbnvw.artemis.controllers.MainWindowController;
@@ -15,6 +16,8 @@ import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
@@ -100,8 +103,12 @@ public class MainApp extends Application {
         loadMainWindow();
 
         IOContext iousers = new IOContext(new IOUsers());
-        Boolean containsSysAdmin = iousers.load().contains(SystemAdministrator.getInstance());
-        if (!containsSysAdmin) {
+        
+        ObservableList<UserLogin> userList = FXCollections.observableArrayList();
+        userList.addAll(new IOContext(new IOUsers()).load());
+        Boolean syadminExist = userList.stream().anyMatch(user -> user instanceof SystemAdministrator);
+        
+        if (!syadminExist) {
             System.out.println("Creating sysadmin, should be at index = 0.");
             iousers.save(SystemAdministrator.getInstance());
         }
