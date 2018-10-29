@@ -17,18 +17,19 @@ import java.util.logging.Logger;
  *
  * @author Donovan Schaafsma
  */
-public class IOQuiz{
-    
-    private static final String QUIZFILELOCATION = "quiz.dat";
-    private ArrayList<Question> question = new ArrayList<>();
+public class IOQuiz {
+
+    private final String QUIZFILELOCATION = "quiz.dat";
+    private ArrayList<Question> question;
     private File file = new File(QUIZFILELOCATION);
 
-
-    public void saveData(Question o) {
+    public void saveData(ArrayList<Question> o) {
         question = loadData();
+        for (Question question1 : o) {
+            question.add(question1);
+        }
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(QUIZFILELOCATION))) {
-            
-            question.add(o);
+
             oos.writeObject(question);
             oos.close();
 
@@ -38,12 +39,12 @@ public class IOQuiz{
     }
 
     public ArrayList<Question> loadData() {
-        
-        if(!file.exists()){
-                question = new ArrayList<>();
-            
+
+        if (!file.exists()) {
+            return question = new ArrayList<>();
+
         }
-        
+
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(QUIZFILELOCATION))) {
             System.out.println("cat");
             question.addAll((ArrayList<Question>) ois.readObject());
@@ -58,5 +59,5 @@ public class IOQuiz{
     public int size() {
         return question.size();
     }
-    
+
 }
